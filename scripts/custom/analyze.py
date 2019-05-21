@@ -18,10 +18,13 @@ from tqdm import tqdm
 
 import os
 from os.path import join
-ROOT = '/home/ansuini/repos/IntrinsicDimDeep'
+cwd = os.getcwd()
+parts = cwd.split('/scripts/custom')
+ROOT = parts[0]
 os.chdir(ROOT)
 import sys
 sys.path.insert(0, ROOT)
+
 
 from IDNN.intrinsic_dimension import estimate, block_analysis
 from scipy.spatial.distance import pdist,squareform

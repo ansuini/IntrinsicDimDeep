@@ -16,10 +16,10 @@ import pickle
 
 import os
 from os.path import join
-
-ROOT = '/home/ansuini/repos/IntrinsicDimDeep'
+cwd = os.getcwd()
+parts = cwd.split('/scripts/custom')
+ROOT = parts[0]
 os.chdir(ROOT)
-
 import sys
 sys.path.insert(0, ROOT)
 
@@ -30,6 +30,8 @@ results_folder = join(ROOT, 'data', 'custom', 'results')
 if not os.path.isdir(results_folder):
     print('Creating directory ' + results_folder)
     os.mkdir(results_folder)
+else:
+    print('Results directory ' + results_folder)
 
 n_out_classes = 40
 
