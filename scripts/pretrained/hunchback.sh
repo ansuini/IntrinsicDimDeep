@@ -6,14 +6,13 @@ declare -a arr=('alexnet' 'vgg11' 'vgg13' 'vgg16' 'vgg19' 'vgg11_bn' 'vgg13_bn' 
 
 declare -a arr_untrained=('vgg16')
 
-nsamples=50
+nsamples=500
 bs=16
-res=2
+res=5
 save=1
 
-
 trained=1
-for i in "${arr[@]}"
+for i in "${arr[@]}":
 do
    echo "$i"
    python hunchback.py --arch $i --nsamples $nsamples --bs $bs --res $res --trained $trained --save $save
