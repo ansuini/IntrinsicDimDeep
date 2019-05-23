@@ -93,8 +93,8 @@ else:
     results_folder = join(ROOT, 'data', 'pretrained', 'results', 'last_hidden_untrained')
     
     
-if not os.path.exists(join(ROOT, 'data', 'pretrained', 'results'):
-    os.makedirs(join(ROOT, 'data', 'pretrained', 'results')
+if not os.path.exists(join(ROOT, 'data', 'pretrained', 'results')):
+    os.makedirs(join(ROOT, 'data', 'pretrained', 'results'))
                 
 if not os.path.exists(results_folder):
     os.makedirs(results_folder)
