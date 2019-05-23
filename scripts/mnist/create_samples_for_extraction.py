@@ -134,8 +134,18 @@ else:
 if save:
     
     sample = tuple([imgs,labels])
-    torch.save(sample,join(RES,'sample.pt'))
+    
+    if train:
+        torch.save(sample,join(RES,'sample_training_set.pt'))
+    else:
+        torch.save(sample,join(RES,'sample_test_set.pt'))
     
     # if mnist save also in mnist shuffled
     if dataset=='mnist':
-        torch.save(sample, join(ROOT,'data', 'mnist_shuffled', 'results','sample.pt') )
+        
+        if train:
+            torch.save(sample, join(ROOT,'data', 'mnist_shuffled', 'results','sample_training_set.pt') )
+        else:
+            torch.save(sample, join(ROOT,'data', 'mnist_shuffled', 'results','sample_test_set.pt') )
+        
+        
