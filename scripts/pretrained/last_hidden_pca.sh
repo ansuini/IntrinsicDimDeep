@@ -5,7 +5,7 @@ declare -a arr=('alexnet' 'vgg11' 'vgg13' 'vgg16' 'vgg19' 'vgg11_bn' 'vgg13_bn' 
 declare -a arr_untrained=('vgg16')
 
 
-nsamples=50
+nsamples=2000
 bs=16
 
 # pretrained networks
