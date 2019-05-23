@@ -13,7 +13,7 @@ from math import sqrt
 from scipy.spatial.distance import pdist, squareform
 
                      
-def estimate(X,fraction=0.9,verbose=True):    
+def estimate(X,fraction=0.9,verbose=False):    
     '''
         Estimates the intrinsic dimension of a system of points from
         the matrix of their distances X

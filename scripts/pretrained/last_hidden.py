@@ -98,7 +98,6 @@ if not os.path.exists(join(ROOT, 'data', 'pretrained', 'results')):
                 
 if not os.path.exists(results_folder):
     os.makedirs(results_folder)
-
 print('Results will be saved in {}'.format(results_folder))
                        
 # remove last fully-connected layer

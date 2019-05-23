@@ -30,11 +30,14 @@ from sklearn.decomposition import PCA
 from sklearn.pipeline import make_pipeline
 from scipy.stats import pearsonr
 
-ROOT = '/home/ansuini/repos/intrinsic_dimension'
-#ROOT = '/home/paperspace/repos/intrinsic_dimension'
-
+# path
+cwd = os.getcwd()
+parts = cwd.split('/scripts/pretrained')
+ROOT = parts[0]
 os.chdir(ROOT)
-sys.path.append(ROOT)
+import sys
+sys.path.insert(0, ROOT)
+
 
 from IDNN.intrinsic_dimension import estimate, block_analysis
 from scipy.spatial.distance import pdist, squareform
@@ -59,7 +62,7 @@ print('N.of single objects to evaluate : {}'.format(n_objects))
 
 #-------------------------------------------------------------------------------------------
 
-# random numbers https://discuss.pytorch.org/t/random-seed-initialization/7854/14
+# random generator init
 torch.backends.cudnn.deterministic = True
 torch.manual_seed(999)
 
@@ -187,11 +190,19 @@ def getResNetsDepths(model):
 if trained == 1:
     print('Instantiating pre-trained model')
     exec('model = ' + arch + '(pretrained=True)')
-    results_folder = join(ROOT, 'data', 'pretrained', 'hunchback_trained')
+    results_folder = join(ROOT, 'data', 'pretrained', 'results', 'hunchback_trained')
 else:
     print('Instantiating randomly initialized model')
     exec('model = ' + arch + '(pretrained=False)')
-    results_folder = join(ROOT, 'data', 'pretrained', 'hunchback_untrained')
+    results_folder = join(ROOT, 'data', 'pretrained', 'results', 'hunchback_untrained')
+    
+if not os.path.exists(join(ROOT, 'data', 'pretrained', 'results')):
+    os.makedirs(join(ROOT, 'data', 'pretrained', 'results'))
+                
+if not os.path.exists(results_folder):
+    os.makedirs(results_folder)
+print('Results will be saved in {}'.format(results_folder))
+    
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 model = model.to(device)
@@ -241,7 +252,7 @@ SV  = []
 embdims = []
 
 for i,tag in enumerate(category_tags):
-    data_folder = join(ROOT, 'data', 'imagenet_training_sample', tag)
+    data_folder = join(ROOT, 'data', 'imagenet_training_single_objs', tag)
     image_dataset = datasets.ImageFolder(join(data_folder), data_transforms)           
     dataloader = torch.utils.data.DataLoader(image_dataset, 
                                              batch_size=bs, 
@@ -293,7 +304,7 @@ for i,tag in enumerate(category_tags):
             perm = np.random.permutation(Out.shape[0])[:nimgs]
             dist = squareform(pdist(Out[perm,:]),'euclidean')
             try:
-                est = estimate(dist,verbose=True) 
+                est = estimate(dist) 
                 est = [est[2],est[3]]
             except:
                 est = []
