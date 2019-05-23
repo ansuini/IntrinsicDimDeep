@@ -100,9 +100,9 @@ print('Results will be saved in {}'.format(RES))
 
 # load sample (the sample is the same for mnist and mnist_shuffled)
 sample = torch.load(join(ROOT,'data', dataset, 'results', 'sample.pt') )
-sample_training = torch.load(join(ROOT,'data', dataset, 'results', 'sample_training.pt') )
+#sample_training = torch.load(join(ROOT,'data', dataset, 'results', 'sample_training.pt') )
 nsamples = sample[0].shape[0]
-nsamples_training = sample_training[0].shape[0]
+#nsamples_training = sample_training[0].shape[0]
 
 # sample of epochs to extract data
 eps = np.arange(0,epochs,step)
@@ -266,9 +266,6 @@ if id_final_all_layers_training_set:
     print('Final result: {}'.format(ID_all[:,0]))
     print('Done.')
     
-    
-
-
 
 # compute block analysis
 if do_block_analysis:

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dataset=mnist_grad
-epochs=1
+epochs=5000
 bs=64
 lr=0.0001
 momentum=0.9

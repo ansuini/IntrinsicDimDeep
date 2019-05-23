@@ -18,9 +18,10 @@ To train on MNIST shuffled
 $ ./mnist_shuffled.sh
 
 
-To train on MNIST with grad lum
+To train on MNIST with grad lum 
 
 $ ./mnist_grad.sh
+
 
 
 

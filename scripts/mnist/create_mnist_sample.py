@@ -79,6 +79,9 @@ if dataset=='mnist':
                            transforms.Normalize((mean_imgs,), (std_imgs,))              
                        ])),
         batch_size=nsamples, shuffle=False, **kwargs)
+    
+    imgs,labels= next(iter(loader))
+
 else:
     # load dataset
     train = torch.load(join(ROOT,'data','mnist_grad','MNIST','processed','training.pt'))
