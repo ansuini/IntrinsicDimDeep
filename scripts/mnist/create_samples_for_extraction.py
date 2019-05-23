@@ -45,6 +45,9 @@ parser.add_argument('--dataset', metavar='DATASET',
                     choices=['mnist','mnist_grad'],
                     help=['original MNIST', 'MNIST with gradient'])
 
+parser.add_argument('--train', default=0, type=int, metavar='FROM TRAINING SET',
+                    help='training (0) or test (1) set')
+
 parser.add_argument('--nsamples', default=2000, type=int,
                     metavar='N', help='data sample size (default: 2000)')
 
@@ -53,6 +56,7 @@ parser.add_argument('--save', default=0, type=int, metavar='save',
 
 
 args = parser.parse_args()
+train = args.train
 nsamples = args.nsamples
 dataset = args.dataset
 save = args.save
@@ -65,49 +69,57 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 kwargs = {'num_workers': 1, 'pin_memory': True} if device.type == 'cuda' else {}
 
 if save:
-    RES = join(ROOT,'data', dataset, 'results')
+    RES = join(ROOT, 'data', dataset, 'results')
     print('Results will be saved in {}'.format(RES))
 else:
     print('Results will not be saved.')
     
 
 if dataset=='mnist':
-    loader = torch.utils.data.DataLoader(    
-        datasets.MNIST(join(ROOT, 'data', dataset), train=False,
-                       transform=transforms.Compose([
-                           transforms.ToTensor(),
-                           transforms.Normalize((mean_imgs,), (std_imgs,))              
-                       ])),
-        batch_size=nsamples, shuffle=False, **kwargs)
-    
+    if train:
+        loader = torch.utils.data.DataLoader(    
+            datasets.MNIST(join(ROOT, 'data', dataset), train=False,
+                           transform=transforms.Compose([
+                               transforms.ToTensor(),
+                               transforms.Normalize((mean_imgs,), (std_imgs,))              
+                           ])),
+            batch_size=nsamples, shuffle=False, **kwargs)
+    else:
+        loader = torch.utils.data.DataLoader(    
+            datasets.MNIST(join(ROOT, 'data', dataset), train=True,
+                           transform=transforms.Compose([
+                               transforms.ToTensor(),
+                               transforms.Normalize((mean_imgs,), (std_imgs,))              
+                           ])),
+            batch_size=nsamples, shuffle=False, **kwargs)
+        
     imgs,labels= next(iter(loader))
 
 else:
+    
     # load dataset
-    train = torch.load(join(ROOT,'data','mnist_grad','MNIST','processed','training.pt'))
-    test = torch.load(join(ROOT,'data','mnist_grad','MNIST','processed','test.pt'))
+    if train:
+        data = torch.load(join(ROOT,'data', dataset,'MNIST','processed','training.pt'))
+    else:
+        data = torch.load(join(ROOT,'data', dataset,'MNIST','processed','test.pt'))
+        
 
     # check min, max, compute mean, std, and ID
-    train_imgs = train[0]
-    test_imgs  = test[0]
-    train_labels = train[1]
-    test_labels = test[1]
-
-    maxi = train_imgs.max()
-    mini = train_imgs.min()
-    mean = train_imgs.mean()
-    std =  train_imgs.std()
-    print(train_imgs.max())
-    print(train_imgs.min())
-    print(train_imgs.mean())
-    print(train_imgs.std())
-
-    perm = np.random.permutation(test_imgs.shape[0])[:nsamples]
-    imgs = test_imgs[perm,:,:].view(nsamples,-1)
-    labels = test_labels[perm]
+    imgs = data[0] 
+    labels = data[1]
+    
+    maxi = imgs.max()
+    mini = imgs.min()
+    mean = imgs.mean()
+    std =  imgs.std()
+   
+    perm = np.random.permutation(imgs.shape[0])[:nsamples]
+    imgs = imgs[perm,:,:].view(nsamples,-1)
+    labels = labels[perm]
+    
     dist = squareform(pdist(imgs,method))
     dim = estimate(dist,verbose=verbose) 
-    print('ID: ' + str(dim[2]) ) 
+    print('ID (before normalization): ' + str(dim[2]) ) 
 
     # normalization
     imgs = (imgs - mean)/std
@@ -120,6 +132,7 @@ else:
     
 # save sample
 if save:
+    
     sample = tuple([imgs,labels])
     torch.save(sample,join(RES,'sample.pt'))
     

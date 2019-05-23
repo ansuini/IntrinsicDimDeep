@@ -41,7 +41,7 @@ from scipy.spatial.distance import pdist, squareform
 
 # args
 parser = argparse.ArgumentParser(description='MNIST with gradient Experiment')
-parser.add_argument('--lambdavar', default=100, type=float, metavar='lambda',
+parser.add_argument('--lambdavar', default=300, type=float, metavar='lambda',
                     help='strength of the perturbation')
 parser.add_argument('--save', default=0, type=int, metavar='save',
                     help='save dataset')
