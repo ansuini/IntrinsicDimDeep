@@ -1,6 +1,6 @@
 #!/bin/bash
 
-epochs=500
+epochs=2
 bs=64
 lr=0.0005
 momentum=0.9
