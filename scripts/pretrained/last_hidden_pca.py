@@ -27,15 +27,20 @@ from sklearn.decomposition import PCA
 from sklearn.pipeline import make_pipeline
 from scipy.stats import pearsonr
 
-# random numbers https://discuss.pytorch.org/t/random-seed-initialization/7854/14
+# random generator init
 torch.backends.cudnn.deterministic = True
 torch.manual_seed(999)
 
-ROOT = '/home/ansuini/repos/intrinsic_dimension'
-os.chdir(ROOT)
 
+# path
+cwd = os.getcwd()
+parts = cwd.split('/scripts/pretrained')
+ROOT = parts[0]
+os.chdir(ROOT)
 import sys
-sys.path.append(ROOT)
+sys.path.insert(0, ROOT)
+
+
 
 from IDNN.intrinsic_dimension import estimate, block_analysis
 from scipy.spatial.distance import pdist, squareform
@@ -44,8 +49,7 @@ archs = ['alexnet', 'vgg11', 'vgg13', 'vgg16','vgg19',
                     'vgg11_bn', 'vgg13_bn', 'vgg16_bn','vgg19_bn',
                     'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152']
 
-#data_folder = join(ROOT, 'data', 'ILSVRC2013_DET_test')
-data_folder = join(ROOT, 'data', 'imagenet_training_sample_mix5')
+data_folder = join(ROOT, 'data', 'imagenet_training_mix')
 
 parser = argparse.ArgumentParser(description='Extract representations in the last hidden layer in many architectures')
 
@@ -75,11 +79,21 @@ print(args)
 if trained == 1:
     print('Instantiating pre-trained model')
     exec('model = ' + arch + '(pretrained=True)')
-    results_folder = join(ROOT, 'data', 'pretrained', 'last_hidden_pca_trained')
+    results_folder = join(ROOT, 'data', 'pretrained', 'results','last_hidden_pca_trained')
 else:
     print('Instantiating randomly initialized model')
     exec('model = ' + arch + '(pretrained=False)')
-    results_folder = join(ROOT, 'data', 'pretrained', 'last_hidden_pca_untrained')
+    results_folder = join(ROOT, 'data', 'pretrained', 'results','last_hidden_pca_untrained')
+
+    
+if not os.path.exists(join(ROOT, 'data', 'pretrained', 'results')):
+    os.makedirs(join(ROOT, 'data', 'pretrained', 'results'))
+                
+if not os.path.exists(results_folder):
+    os.makedirs(results_folder)
+print('Results will be saved in {}'.format(results_folder))
+    
+    
 
 # get pca dim
 th = 0.9
@@ -166,7 +180,7 @@ pickle.dump(pca, open(join(results_folder, arch + '_pca_training_data.pkl'),'wb'
 # Analysis of the elliptical dataset. This generates a dataset with the 
 # same correlation structure of the original dataset
 
-verbose=True
+verbose=False
 method='euclidean'
 
 ID_original = []
