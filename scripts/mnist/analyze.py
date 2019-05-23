@@ -48,9 +48,6 @@ parser.add_argument('--epochs', default=0, type=int, metavar='N',
 parser.add_argument('--extract', default=0, type=int, metavar='',
                     help='extract representations (0 no, 1 yes)')
 
-parser.add_argument('--step', default=1, type=int, metavar='N',
-                    help='step (epochs to jump in the sequence)')
-
 parser.add_argument('--id_final_all_layers', default=0, type=int, metavar='',
                     help='compute ID in all layers at end of training')
 
@@ -68,7 +65,6 @@ epochs = args.epochs
 extract = args.extract
 fraction = args.fraction
 nres = args.nres
-step = args.step
 id_final_all_layers = args.id_final_all_layers
 
 method = 'euclidean'
@@ -92,9 +88,6 @@ else:
 
 nsamples = sample[0].shape[0]
 
-
-# sample of epochs to extract data
-eps = np.arange(0,epochs,step)
 
 def computeID(r,epoch,nres,fraction):
     ID = []
@@ -131,7 +124,7 @@ if extract:
     
 #final ID at all layers
 if id_final_all_layers:
-    epoch = epochs
+    epoch = epochs-1
     print('Extracting representations from all layers...')
     # load model
     model = torch.load(join(RES, 'model_' + str(epoch) + '.pt') )
