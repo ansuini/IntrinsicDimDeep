@@ -27,7 +27,7 @@ sys.path.insert(0, ROOT)
 
 
 import mnist_archs
-layers = ['input','pool1','pool2','d1','output']
+layers = ['input','conv1','pool1', 'conv2', 'pool2', 'd1','output']
 
 from IDNN.intrinsic_dimension import estimate, block_analysis
 from scipy.spatial.distance import pdist, squareform
@@ -51,24 +51,14 @@ parser.add_argument('--extract', default=0, type=int, metavar='',
 parser.add_argument('--step', default=1, type=int, metavar='N',
                     help='step (epochs to jump in the sequence)')
 
-parser.add_argument('--id_evolution', default=0, type=int, metavar='',
-                    help='compute time evolution of ID in checkpoint layers')
-
-parser.add_argument('--id_final', default=0, type=int, metavar='',
-                    help='compute ID in checkpoint layers at the end of training')
-
 parser.add_argument('--id_final_all_layers', default=0, type=int, metavar='',
                     help='compute ID in all layers at end of training')
-
-parser.add_argument('--do_block_analysis', default=0, type=int, metavar='',
-                    help='block analysis in checkpoint layers at end of training')
 
 parser.add_argument('--fraction', default=0.9, type=float, metavar='fraction',
                     help='fraction of data resampling for error estimation')
 
 parser.add_argument('--nres', default=50, type=int, metavar='N',
                     help='number of resamplings for error estimation')
-
 
 
 args = parser.parse_args()
@@ -79,11 +69,7 @@ extract = args.extract
 fraction = args.fraction
 nres = args.nres
 step = args.step
-id_evolution = args.id_evolution
-id_final = args.id_final
 id_final_all_layers = args.id_final_all_layers
-do_block_analysis = args.do_block_analysis
-
 
 method = 'euclidean'
 verbose=False
@@ -131,7 +117,6 @@ if extract:
     for epoch in tqdm(eps):
         # load model
         model = torch.load(join(RES, 'model_' + str(epoch) + '.pt') )
-
         # extract representations from the sample of test data
         out1, out2, out3, out4 = model.extract(sample[0].to(device),verbose=verbose)
         out1 = out1.view(nsamples, -1).cpu().data
@@ -144,60 +129,9 @@ if extract:
         torch.save(out4, join(RES, 'R4_' + str(epoch) ) )
     print('Done.')
     
-    
-# compute the intrinsic dimension evolution
-if id_evolution:
-    print('Computing intrinsic dimension evolution...')
-    fname = join(RES, 'ID_evolution.p')
-    ID = []  
-    count = 0
-    tot = 0
-    for i in tqdm(eps):  
-        Id = []
-        for j in range(1,len(layers)):  
-            tot += 1
-            r = torch.load(join(RES, 'R' + str(j) + '_' + str(i) ) ) 
-            dist = squareform(pdist(r,method))            
-            try:                                
-                est = estimate(dist,verbose=verbose) 
-                est = [est[2],est[3]]
-            except:
-                print('Warning ! Losing data.')
-                count += 1
-                est = []                             
-            Id.append(est)           
-        ID.append(Id)
-    print('Data loss : {}'.format(count/tot))
-
-    ID = np.array(ID)
-    tags = ['layers','ID']
-    vals = [layers, ID]
-    evolution = dict(zip(tags,vals))
-    pickle.dump(evolution, open( fname, "wb"))   
-    print('Done.')
-
-    
-# intrinsic dimension at the end of training
-if id_final:
-    verbose = True
-    epoch = epochs-step
-    fname = join(RES, 'ID')
-    # ID of the input
-    ID = []
-    ID.append(computeID(sample[0].view(sample[0].shape[0],-1),epoch,nres,fraction))
-    # ID of all other layers
-    for j in range(1,len(layers)):         
-        r = torch.load(join(RES, 'R' + str(j) + '_' + str(epoch) ) ) 
-        ID.append(computeID(r,epoch,nres,fraction)) 
-    ID = np.array(ID)
-    np.save(fname,ID)
-    print('Final result: {}'.format(ID[:,0]))
-    print('Done.')
-    
-
-#ID at all layers
+#final ID at all layers
 if id_final_all_layers:
-    epoch = epochs-step
+    epoch = epochs
     print('Extracting representations from all layers...')
     # load model
     model = torch.load(join(RES, 'model_' + str(epoch) + '.pt') )
@@ -212,19 +146,19 @@ if id_final_all_layers:
     out6 = out6.view(nsamples, -1).cpu().data 
     
     if train:
-        torch.save(out1, join(RES, 'All_R1_training_' + str(epoch) ) )
-        torch.save(out2, join(RES, 'All_R2_training_' + str(epoch) ) )
-        torch.save(out3, join(RES, 'All_R3_training_' + str(epoch) ) )
-        torch.save(out4, join(RES, 'All_R4_training_' + str(epoch) ) )
-        torch.save(out5, join(RES, 'All_R5_training_' + str(epoch) ) )
-        torch.save(out6, join(RES, 'All_R6_training_' + str(epoch) ) )
+        torch.save(out1, join(RES, 'All_R1_training') )
+        torch.save(out2, join(RES, 'All_R2_training') )
+        torch.save(out3, join(RES, 'All_R3_training') )
+        torch.save(out4, join(RES, 'All_R4_training') )
+        torch.save(out5, join(RES, 'All_R5_training') )
+        torch.save(out6, join(RES, 'All_R6_training') )
     else:
-        torch.save(out1, join(RES, 'All_R1_test_' + str(epoch) ) )
-        torch.save(out2, join(RES, 'All_R2_test_' + str(epoch) ) )
-        torch.save(out3, join(RES, 'All_R3_test_' + str(epoch) ) )
-        torch.save(out4, join(RES, 'All_R4_test_' + str(epoch) ) )
-        torch.save(out5, join(RES, 'All_R5_test_' + str(epoch) ) )
-        torch.save(out6, join(RES, 'All_R6_test_' + str(epoch) ) )
+        torch.save(out1, join(RES, 'All_R1_test') )
+        torch.save(out2, join(RES, 'All_R2_test') )
+        torch.save(out3, join(RES, 'All_R3_test') )
+        torch.save(out4, join(RES, 'All_R4_test') )
+        torch.save(out5, join(RES, 'All_R5_test') )
+        torch.save(out6, join(RES, 'All_R6_test') )
         
     print('Done.')
 
@@ -237,64 +171,15 @@ if id_final_all_layers:
     ID_all = []       
     ID_all.append(computeID(sample[0].view(sample[0].shape[0],-1),epoch,nres,fraction))
     # ID of all other layers
-    for j in range(1,len(layers)+2):
+    for j in range(1,len(layers)):
         
         if train:
-            r = torch.load(join(RES, 'All_R_training_' + str(j) + '_' + str(epoch) ) ) 
+            r = torch.load(join(RES, 'All_R' + str(j) + '_training') ) 
         else:
-            r = torch.load(join(RES, 'All_R_test_' + str(j) + '_' + str(epoch) ) )
+            r = torch.load(join(RES, 'All_R' + str(j) + '_test') ) 
         ID_all.append(computeID(r,epoch,nres,fraction)) 
     ID_all = np.array(ID_all)
     np.save(fname,ID_all)
     print('Final result: {}'.format(ID_all[:,0]))
     print('Done.')
     
-#ID at all layers (training set)
-if id_final_all_layers_training_set:
-    epoch = epochs-step
-    print('Extracting representations from all layers...')
-    # load model
-    model = torch.load(join(RES, 'model_' + str(epoch) + '.pt') )
-
-    # extract representations from the sample of training data
-    out1, out2, out3, out4, out5, out6 = model.extract_all(sample_training[0].to(device),verbose=verbose)
-    out1 = out1.view(nsamples_training, -1).cpu().data
-    out2 = out2.view(nsamples_training, -1).cpu().data
-    out3 = out3.view(nsamples_training, -1).cpu().data
-    out4 = out4.view(nsamples_training, -1).cpu().data 
-    out5 = out5.view(nsamples_training, -1).cpu().data
-    out6 = out6.view(nsamples_training, -1).cpu().data 
-    torch.save(out1, join(RES, 'All_R1_training_' + str(epoch) ) )
-    torch.save(out2, join(RES, 'All_R2_training_' + str(epoch) ) )
-    torch.save(out3, join(RES, 'All_R3_training_' + str(epoch) ) )
-    torch.save(out4, join(RES, 'All_R4_training_' + str(epoch) ) )
-    torch.save(out5, join(RES, 'All_R5_training_' + str(epoch) ) )
-    torch.save(out6, join(RES, 'All_R6_training_' + str(epoch) ) )
-    print('Done.')
-
-    # ID of all layers
-    fname = join(RES, 'ID_all_training_set')
-    ID_all = []
-    ID_all.append(computeID(sample[0].view(sample[0].shape[0],-1),epoch,nres,fraction))
-    # ID of all other layers
-    for j in range(1,len(layers)+2):         
-        r = torch.load(join(RES, 'All_R' + str(j) + '_training_' + str(epoch) ) ) 
-        ID_all.append(computeID(r,epoch,nres,fraction)) 
-    ID_all = np.array(ID_all)
-    np.save(fname,ID_all)
-    print('Final result: {}'.format(ID_all[:,0]))
-    print('Done.')
-    
-
-# compute block analysis
-if do_block_analysis:
-    epoch = epochs-step
-    fname = join(RES, 'BA')
-    method = 'euclidean'
-    BA=[]
-    for j in range(1,len(layers)):         
-        r = torch.load(join(RES, 'R' + str(j) + '_' + str(epoch) ) ) 
-        dist = squareform(pdist(r,method))
-        BA.append(block_analysis(dist))       
-    np.save(fname,BA)
-    print('Done.')
