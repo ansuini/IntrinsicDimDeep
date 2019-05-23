@@ -39,6 +39,9 @@ parser.add_argument('--dataset', metavar='DATASET',
                     choices=['mnist','mnist_shuffled','mnist_grad'],
                     help=['original MNIST','shuffled MNIST','MNIST with gradient'])
 
+parser.add_argument('--train', default=1, type=int, metavar='',
+                    help='use sample from training (0) or test (1) set)')
+
 parser.add_argument('--epochs', default=0, type=int, metavar='N',
                     help='number of total epochs to run (set it equal to the number of training epochs of your model)')
 
@@ -70,6 +73,7 @@ parser.add_argument('--nres', default=50, type=int, metavar='N',
 
 args = parser.parse_args()
 dataset = args.dataset
+train = args.train
 epochs = args.epochs
 extract = args.extract
 fraction = args.fraction

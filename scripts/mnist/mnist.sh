@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-epochs=200
+epochs=2
 bs=64
 lr=0.00004
 momentum=0.0
