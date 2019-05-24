@@ -42,10 +42,7 @@ parser.add_argument('--dataset', metavar='DATASET',
 parser.add_argument('--epochs', default=0, type=int, metavar='N',
                     help='number of total epochs to run (set it equal to the number of training epochs of your model)')
 
-parser.add_argument('--extract', default=0, type=int, metavar='',
-                    help='extract representations (0 no, 1 yes)')
-
-parser.add_argument('--id_final_all_layers', default=0, type=int, metavar='',
+parser.add_argument('--id_all_layers', default=0, type=int, metavar='',
                     help='compute ID in all layers at end of training')
 
 parser.add_argument('--fraction', default=0.9, type=float, metavar='fraction',
@@ -98,8 +95,8 @@ def computeID(r,epoch,nres,fraction):
     return mean,error
 
     
-#final ID at all layers
-if id_final_all_layers:
+#ID at all layers
+if id_all_layers:
     epoch = epochs-1
     print('Extracting representations from all layers...')
     # load model
