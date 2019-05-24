@@ -13,8 +13,8 @@ epochs3=500
 #epochs2=
 #epochs3=
 
-python analyze.py --dataset mnist --epoch $epoch1
+python analyze.py --dataset mnist --epochs $epochs1
 
-python analyze.py --dataset mnist_grad --epoch $epoch2
+python analyze.py --dataset mnist_grad --epochs $epochs2
 
-python analyze.py --dataset mnist_shuffled --epoch $epoch3
+python analyze.py --dataset mnist_shuffled --epochs $epochs3
