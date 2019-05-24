@@ -54,12 +54,11 @@ parser.add_argument('--nres', default=50, type=int, metavar='N',
 
 args = parser.parse_args()
 dataset = args.dataset
-train = args.train
 epochs = args.epochs
 extract = args.extract
 fraction = args.fraction
 nres = args.nres
-id_final_all_layers = args.id_final_all_layers
+id_all_layers = args.id_all_layers
 
 method = 'euclidean'
 verbose=False
