@@ -133,7 +133,7 @@ if extract:
 # compute intrinsic dimension
 
 if id_final:
-    verbose = True
+    verbose = False
     method = 'euclidean'
     fraction = 0.9
     nres = 20
