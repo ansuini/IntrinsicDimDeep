@@ -39,9 +39,6 @@ parser.add_argument('--dataset', metavar='DATASET',
                     choices=['mnist','mnist_shuffled','mnist_grad'],
                     help=['original MNIST','shuffled MNIST','MNIST with gradient'])
 
-parser.add_argument('--train', default=1, type=int, metavar='',
-                    help='use sample from training (0) or test (1) set)')
-
 parser.add_argument('--epochs', default=0, type=int, metavar='N',
                     help='number of total epochs to run (set it equal to the number of training epochs of your model)')
 
@@ -81,11 +78,8 @@ print('Results will be saved in {}'.format(RES))
 
 # load sample (the sample is the same for mnist and mnist_shuffled)
 
-if train:
-    sample = torch.load(join(ROOT,'data', dataset, 'results', 'sample_training_set.pt') )
-else:
-    sample = torch.load(join(ROOT,'data', dataset, 'results', 'sample_test_set.pt') )
 
+sample = torch.load(join(ROOT,'data', dataset, 'results', 'sample.pt') )
 nsamples = sample[0].shape[0]
 
 
@@ -103,24 +97,6 @@ def computeID(r,epoch,nres,fraction):
     error = np.std(ID) 
     return mean,error
 
-
-# extract representations
-if extract:
-    print('Extracting representations in each epoch...')
-    for epoch in tqdm(eps):
-        # load model
-        model = torch.load(join(RES, 'model_' + str(epoch) + '.pt') )
-        # extract representations from the sample of test data
-        out1, out2, out3, out4 = model.extract(sample[0].to(device),verbose=verbose)
-        out1 = out1.view(nsamples, -1).cpu().data
-        out2 = out2.view(nsamples, -1).cpu().data
-        out3 = out3.view(nsamples, -1).cpu().data
-        out4 = out4.view(nsamples, -1).cpu().data 
-        torch.save(out1, join(RES, 'R1_' + str(epoch) ) )
-        torch.save(out2, join(RES, 'R2_' + str(epoch) ) )
-        torch.save(out3, join(RES, 'R3_' + str(epoch) ) )
-        torch.save(out4, join(RES, 'R4_' + str(epoch) ) )
-    print('Done.')
     
 #final ID at all layers
 if id_final_all_layers:
@@ -138,38 +114,27 @@ if id_final_all_layers:
     out5 = out5.view(nsamples, -1).cpu().data
     out6 = out6.view(nsamples, -1).cpu().data 
     
-    if train:
-        torch.save(out1, join(RES, 'All_R1_training') )
-        torch.save(out2, join(RES, 'All_R2_training') )
-        torch.save(out3, join(RES, 'All_R3_training') )
-        torch.save(out4, join(RES, 'All_R4_training') )
-        torch.save(out5, join(RES, 'All_R5_training') )
-        torch.save(out6, join(RES, 'All_R6_training') )
-    else:
-        torch.save(out1, join(RES, 'All_R1_test') )
-        torch.save(out2, join(RES, 'All_R2_test') )
-        torch.save(out3, join(RES, 'All_R3_test') )
-        torch.save(out4, join(RES, 'All_R4_test') )
-        torch.save(out5, join(RES, 'All_R5_test') )
-        torch.save(out6, join(RES, 'All_R6_test') )
-        
+    
+    torch.save(out1, join(RES, 'All_R1') )
+    torch.save(out2, join(RES, 'All_R2') )
+    torch.save(out3, join(RES, 'All_R3') )
+    torch.save(out4, join(RES, 'All_R4') )
+    torch.save(out5, join(RES, 'All_R5') )
+    torch.save(out6, join(RES, 'All_R6') )
+   
     print('Done.')
 
     # ID of all layers
-    if train:
-        fname = join(RES, 'ID_all_training')
-    else:
-        fname = join(RES, 'ID_all_test')
-        
+    
+    fname = join(RES, 'ID_all')
+   
     ID_all = []       
     ID_all.append(computeID(sample[0].view(sample[0].shape[0],-1),epoch,nres,fraction))
     # ID of all other layers
     for j in range(1,len(layers)):
         
-        if train:
-            r = torch.load(join(RES, 'All_R' + str(j) + '_training') ) 
-        else:
-            r = torch.load(join(RES, 'All_R' + str(j) + '_test') ) 
+        r = torch.load(join(RES, 'All_R' + str(j)) ) 
+        
         ID_all.append(computeID(r,epoch,nres,fraction)) 
     ID_all = np.array(ID_all)
     np.save(fname,ID_all)
