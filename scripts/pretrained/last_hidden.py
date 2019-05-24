@@ -189,4 +189,4 @@ ID = np.array(ID)
 
 
 if save:
-    np.save(join(results_folder, arch + '_ID_last_hidden.npy'), ID)
+    np.save(join(results_folder, arch + '.npy'), ID)
