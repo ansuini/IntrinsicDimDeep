@@ -166,7 +166,6 @@ for i, data in enumerate(dataloader, 0):
             Out = torch.cat((Out, out.view(inputs.shape[0], -1).cpu().data),0) 
             Out = Out.detach()     
         del out
-np.save(join(results_folder, arch + '_out_last_hidden_layer_training_data.npy'), ID )
 
 # PCA
 scaler = StandardScaler()
@@ -175,10 +174,10 @@ Outn = scaler.transform(Out)
 
 pca = PCA()
 pca.fit(Outn)
-pickle.dump(pca, open(join(results_folder, arch + '_pca_training_data.pkl'),'wb' ) )
+pickle.dump(pca, open(join(results_folder, arch + '_pca.pkl'),'wb' ) )
 
-# Analysis of the elliptical dataset. This generates a dataset with the 
-# same correlation structure of the original dataset
+
+#This generates and analyzes a dataset with the same correlation structure of the original dataset
 
 verbose=False
 method='euclidean'
@@ -246,4 +245,4 @@ for nsamples in tqdm(sizes):
 tags = ['ID_original', 'ID_ellipse', 'ID_PC']
 values = [ID_original, ID_ellipse, ID_PC]
 IDs = dict(zip(tags,values))
-pickle.dump(IDs,open(join(results_folder, arch + '_IDs_training_data.pkl'), 'wb') )
+pickle.dump(IDs,open(join(results_folder, arch + '_IDs.pkl'), 'wb') )
