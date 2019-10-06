@@ -16,5 +16,4 @@ We were largely inspired from the amazing repository ["(SV)CCA"](https://github.
 [rephrase]
 The [tutorials](https://github.com/ansuini/IntrinsicDimDeep/tree/master/tutorials) overview all of the main scripts, provide an example implementation, and also discuss existing applications and new directions. 
 
-
-The main script is [cca_core](https://github.com/google/svcca/blob/master/cca_core.py) which can be used to compute CCA between two neural networks and outputs both the CCA correlation coefficients as well as the CCA directions. The CCA for Conv Layers tutorial outlines applications to convolutional layers.
+The main file is [intrinsic_dimension.py](https://github.com/ansuini/IntrinsicDimDeep/tree/master/IDNN/intrinsic_dimension.py) which contains the functions to estimate the intrinsic dimension and to perform the multi-scale analysis (block-analysis).
