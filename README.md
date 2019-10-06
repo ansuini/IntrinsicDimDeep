@@ -1,5 +1,8 @@
 LICENSE
 
+Ask an expert how to deal with Licenses in such situations
+
+
 ## Intrinsic dimension of data representations in deep neural networks
 
 
