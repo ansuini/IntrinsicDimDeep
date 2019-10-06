@@ -14,12 +14,18 @@ We were largely inspired from the amazing repository ["(SV)CCA"](https://github.
 ### Code Structure and Usage
 
 [rephrase]
-The [tutorials](https://github.com/ansuini/IntrinsicDimDeep/tree/master/tutorials) overview all of the main scripts, provide an example implementation, and also discuss existing applications and new directions. 
+The [tutorials](https://github.com/ansuini/IntrinsicDimDeep/tree/master/tutorials) provide an example implementation. We suggest starting from here.
 
 The main file is [intrinsic_dimension.py](https://github.com/ansuini/IntrinsicDimDeep/tree/master/IDNN/intrinsic_dimension.py) which contains the functions to estimate the intrinsic dimension and to perform the multi-scale analysis (block-analysis).
+
+POINT TO THE OTHER FILES
+
 
 
 ### Video Sources
 
-To frame this research in a broad perspective, relevant for Neuroscience, we point to the excellent seminar by Davide Zoccolan at
+To frame this research in a broader perspective, relevant for Neuroscience, we point to the excellent seminar given by Davide Zoccolan at
 the [ICTP Workshop on Science of Data Science | (smr 3283)](https://www.youtube.com/watch?v=nO13-AHit6E)
+
+
+### Slides and NIPS Video [Should I put them here?]
