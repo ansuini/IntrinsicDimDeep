@@ -1,6 +1,6 @@
 ## Intrinsic dimension of data representations in deep neural networks
 
-<img src="https://github.com/ansuini/IntrinsicDimDeep/tree/master/blob/docs/figs/wrap_up.png" width="500" />
+<img src="https://github.com/ansuini/IntrinsicDimDeep/blob/master/docs/figs/wrap_up.png" width="500" />
 
 
 This repository contains the code to reproduce the results of the following paper
