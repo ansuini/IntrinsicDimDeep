@@ -16,7 +16,7 @@ The main file is [intrinsic_dimension.py](https://github.com/ansuini/IntrinsicDi
 
 ### Video Sources
 
-To frame this research in a broader perspective we point to the excellent seminar given by Davide Zoccolan at
+To frame this research in a broad perspective we point to the excellent seminar given by Davide Zoccolan at
 the [ICTP Workshop on Science of Data Science | (smr 3283)](https://www.youtube.com/watch?v=nO13-AHit6E)
 
 
