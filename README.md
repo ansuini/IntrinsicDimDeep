@@ -1,6 +1,9 @@
 ## Intrinsic dimension of data representations in deep neural networks
 
 
+![alt text](https://github.com/ansuini/IntrinsicDimDeep/tree/master/docs/figs/wrap_up.png)
+
+
 This repository contains the code to reproduce the results of the following paper
 
 ["Intrinsic dimension of data representations in deep neural networks"](https://arxiv.org/abs/1905.12784). _Neural Information Processing Systems (NeurIPS) 2019_
