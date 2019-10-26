@@ -23,3 +23,4 @@ the [ICTP Workshop on Science of Data Science | (smr 3283)](https://www.youtube.
 ### Results reproducibility
 
 In order to reproduce the main results of our paper follow these detailed instruction [code_instructions.pdf](https://github.com/ansuini/IntrinsicDimDeep/tree/master/code_instructions.pdf)
+(you will have to download the data at this [link](https://figshare.com/s/8a039f58c7b84a215b6d))
