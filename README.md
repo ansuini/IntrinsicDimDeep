@@ -291,6 +291,18 @@ First of all you will have to download and unzip in the ROOT the data provided a
     ```
     
     
+  ### References
+  
+  If you found this page useful please consider citing the following paper
+  
+  ```
+  @article{ansuini2019intrinsic,
+  title={Intrinsic dimension of data representations in deep neural networks},
+  author={Ansuini, Alessio and Laio, Alessandro and Macke, Jakob H and Zoccolan, Davide},
+  journal={arXiv preprint arXiv:1905.12784},
+  year={2019}
+  }
+  ```
   
   
 
