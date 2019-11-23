@@ -166,7 +166,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
 
   You can plot the results of a typical run just by opening the notebook plots.ipynb in scripts/custom. 
 
-  If you want to do the  training and analyze your results you can do as follows:
+  If you want to do the  training and analyse your results you can do as follows:
 
   - change directory into data/custom
 
@@ -202,15 +202,12 @@ First of all you will have to download and unzip in the ROOT the data provided a
   ​```
     ```
     
-    This will analyze the extracted representations and generate the data (sav-
-    ing it by default) required for Figure 2 (there can be small fluctuations
-  due to the number of epochs of training that you use and/or the random
-    splitting between train and test).
+    This will analyse the extracted representations and generate the data (saving it by default) required for Figure 2 (there can be small fluctuations due to the number of epochs of training that you use and/or the random splitting between train and test).
     
   
     
     You can visualize your results opening the notebook plots.ipynb in scripts/custom,
-    decommenting the line that specifies to use your results.
+  decommenting the line that specify to use your results.
     
     This pattern of usage will be maintained for all the experiments below.
 
