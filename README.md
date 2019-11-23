@@ -251,7 +251,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
 
   
 
-- **Figure 6 (MNIST, MNIST*, MNIST+**
+- **Figure 6 (MNIST)**
 
   To show the results of a typical run
 
