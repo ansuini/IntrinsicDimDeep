@@ -174,7 +174,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
   
     ```
   ​```
-    $python train_test_split.py
+    $ python train_test_split.py
   ​```
     ```
 
@@ -184,26 +184,32 @@ First of all you will have to download and unzip in the ROOT the data provided a
 
   - launch finetuning:
 
+    
+
     ```
-  $ python finetune
+    ​```
+    $ python finetune
+  ​```
     ```
   
     This will finetune a VGG-16 pre-trained on ImageNet. At the end it will also extract representations and save them in data/custom/results by default
-
-  - run the bash script
+  
+- run the bash script
   
     ```
+  ​```
     $ ./run.sh
-  ```
-  
+  ​```
+    ```
+    
     This will analyze the extracted representations and generate the data (sav-
-  ing it by default) required for Figure 2 (there can be small fluctuations
-    due to the number of epochs of training that you use and/or the random
+    ing it by default) required for Figure 2 (there can be small fluctuations
+  due to the number of epochs of training that you use and/or the random
     splitting between train and test).
+    
   
     
-    
-  You can visualize your results opening the notebook plots.ipynb in scripts/custom,
+    You can visualize your results opening the notebook plots.ipynb in scripts/custom,
     decommenting the line that specifies to use your results.
     
     This pattern of usage will be maintained for all the experiments below.
@@ -220,9 +226,11 @@ First of all you will have to download and unzip in the ROOT the data provided a
   To re-create the data from scratch:
 
   - ```
+    ​```
     $ ./last_hunchback.sh
+  ​```
     ```
-
+    
     
 
 - **Figure 4 (ID and generalization)**
@@ -235,7 +243,9 @@ First of all you will have to download and unzip in the ROOT the data provided a
   To re-create the data from scratch:
 
   - ```
+    ​```
     $ ./last_hidden.sh
+    ​```
     ```
 
 
@@ -250,7 +260,9 @@ First of all you will have to download and unzip in the ROOT the data provided a
   To re-create the data from scratch:
 
   - ```
+    ​```
     $ ./last_hidden_pca.sh
+    ​```
     ```
 
   
@@ -267,53 +279,69 @@ First of all you will have to download and unzip in the ROOT the data provided a
   - train the small convolutional network on all the datasets (MNIST,MNIST* and MNIST+)
 
     ```
+    ​```
     $ ./train_all.sh
+  ​```
     ```
 
     You could do the three trainings separately:
-
+  
     ```
+  ​```
     $ ./mnist.sh
+    ​```
     ```
 
     ```
+    ​```
     $ ./mnist_grad.sh
+  ​```
     ```
 
     ```
+    ​```
     $ ./mnist_shuffled.sh
+  ​```
     ```
 
   - analyze the results in the three cases:
 
     ```
+  ​```
     $ ./analyze_all.sh
+    ​```
     ```
 
     
 
     The epochs specified as parameters in analize_all.sh are by default the same used to train the different models.
-
+  
     Anyway, for exploration purposes you can choose at which epoch to extract the data.
 
     ```
+  ​```
     $ python analyze.py --dataset yourdataset --epoch yourepoch
+    ​```
     ```
 
   -  The shuffled dataset (MNIST+) and the dataset perturbed with the luminosity gradient (MNIST*) are provided. Anyway, you can create a new shuffled dataset
 
     ```
+    ​```
     $ python create_shuffled_mnist.py --save 1
+  ​```
     ```
-
+  
     and / or a new MNIST perturbed with a higher or lower stretching parameter lambda
-
-    ```
-    $ python create_mnist_with_gradient.py --save 1 --lambdavar yourlambda
-    ```
-
     
-
+    ```
+  ​```
+    $ python create_mnist_with_gradient.py --save 1 --lambdavar yourlambda
+    ​```
+    ```
+    
+    
+  
   
 
 
