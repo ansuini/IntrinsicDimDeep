@@ -105,7 +105,7 @@ We performed further experiments on the dynamics of the ID. These line of resear
 
 But from the evidence we collected and from the results we found in the literature we are not able to draw definitive conclusions yet.
 
-We performed these experiments on a VGG-16 network trained on CIFAR-10; the architecture and the optimization procedure used for these experiments is taken from this [repository] (https://github.com/kuangliu/pytorch-cifar).
+We performed these experiments on a VGG-16 network trained on CIFAR-10; the architecture and the optimization procedure used for these experiments is taken from https://github.com/kuangliu/pytorch-cifar.
 
 Our main observations are:
 
@@ -251,7 +251,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
 
   
 
-- **Figure 6 (MNIST + MNIST$^{\star, \dagger}$)**
+- **Figure 6 (MNIST, MNIST*, MNIST+**
 
   To show the results of a typical run
 
@@ -260,7 +260,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
 
   To re-create the data the procedure is slightly longer than in the preceding cases:
 
-  - train the small convolutional network on all the datasets (MNIST,MNIST$^{\star}$ and MNIST$^{\dagger}$)
+  - train the small convolutional network on all the datasets (MNIST,MNIST* and MNIST+)
 
     ```
     $ ./train_all.sh
@@ -296,13 +296,13 @@ First of all you will have to download and unzip in the ROOT the data provided a
     $ python analyze.py --dataset yourdataset --epoch yourepoch
     ```
 
-  -  The shuffled dataset (MNIST$^{\dagger}$) and the dataset perturbed with the luminosity gradient (MNIST$^{\star}$) are provided. Anyway, you can create a new shuffled dataset
+  -  The shuffled dataset (MNIST+) and the dataset perturbed with the luminosity gradient (MNIST*) are provided. Anyway, you can create a new shuffled dataset
 
     ```
     $ python create_shuffled_mnist.py --save 1
     ```
 
-    and / or a new MNIST perturbed with a higher or lower stretching parameter $\lambda$
+    and / or a new MNIST perturbed with a higher or lower stretching parameter lambda
 
     ```
     $ python create_mnist_with_gradient.py --save 1 --lambdavar yourlambda
