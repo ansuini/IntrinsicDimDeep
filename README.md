@@ -145,8 +145,6 @@ We provide the following tutorials:
 
 ### Reproduction of results
 
-In order to reproduce the results of the experiments described in our paper you need to download the data at this [link](https://figshare.com/s/8a039f58c7b84a215b6d).
-
 **Main dependencies**
 
 - Python (3.6.7)
@@ -166,40 +164,44 @@ First of all you will have to download and unzip in the ROOT the data provided a
 
 - **Figure 2: VGG-16-R on a custom dataset**
 
-  You can plot the results of a typical run just by opening the [jupyter notebook](./scripts/custom/plot.ipynb) . If you want to do the  training and analyze your results you can do as follows:
+  You can plot the results of a typical run just by opening the notebook plots.ipynb in scripts/custom. 
+
+  If you want to do the  training and analyze your results you can do as follows:
 
   - change directory into data/custom
 
   - generate the train/test split:
-
+  
     ```
-    $ python train_test_split.py
+  $ python train_test_split.py
     ```
 
   - change directory to scripts/custom 
 
   - launch finetuning:
-
+  
     ```
-    $ python finetune
+  $ python finetune
     ```
 
     This will finetune a VGG-16 pre-trained on ImageNet. At the end it will also extract representations and save them in data/custom/results by default
 
   - run the bash script
-
+  
     ```
-    $ ./run.sh
+  $ ./run.sh
     ```
-
+  
     This will analyze the extracted representations and generate the data (sav-
     ing it by default) required for Figure 2 (there can be small fluctuations
-    due to the number of epochs of training that you use and/or the random
+  due to the number of epochs of training that you use and/or the random
     splitting between train and test).
-
-    You can visualize your results opening the [jupyter notebook](./scripts/custom/plot.ipynb) ,
+  
+  
+    
+  You can visualize your results opening the notebook plots.ipynb in scripts/custom,
     decommenting the line that specifies to use your results.
-
+    
     This pattern of usage will be maintained for all the experiments below.
 
 
@@ -209,7 +211,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
   To show the results of a typical run
 
   - change directory to scripts/pretrained
-  - open and run the [jupyter notebook](./scripts/pretrained/hunchback.ipynb)
+  - open and run the notebook hunchback.ipynb
 
   To re-create the data from scratch:
 
@@ -224,7 +226,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
   To show the results of a typical run
 
   - change directory to scripts/pretrained
-  - open and run the [jupyter notebook](./scripts/pretrained/last_hidden.ipynb)
+  - open and run the last_hidden.ipynb
 
   To re-create the data from scratch:
 
@@ -239,7 +241,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
   To show the results of a typical run
 
   - change directory to scripts/pretrained
-  - open and run the [jupyter notebook](./scripts/pretrained/last_hidden_pca.ipynb)
+  - open and run the last_hidden_pca.ipynb
 
   To re-create the data from scratch:
 
@@ -254,7 +256,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
   To show the results of a typical run
 
   - change directory to scripts/mnist
-  - open and run the [jupyter notebook](./scripts/mnist/plot.ipybn)
+  - open and run the plot.ipybn
 
   To re-create the data the procedure is slightly longer than in the preceding cases:
 
