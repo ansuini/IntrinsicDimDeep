@@ -26,7 +26,7 @@ Alessio Ansuini (1),  Alessandro Laio (1),  Jakob H. Macke (2),  Davide Zoccolan
 
 
 
-# Contents
+## Contents
 
 We provide
 
@@ -35,11 +35,11 @@ We provide
 - detailed instructions for **reproducibility** of our results [here](./REPRODUCIBILITY.md)
 - **extra materials** (videos, slides, etc.) just below
 
-# Extras
+## Extras
 
 - to frame this research in a broader perspective - embracing Neuroscience and Deep Learning - we point to the **seminar** given by Davide Zoccolan at the [ICTP Workshop on Science of Data Science | (smr 3283)](https://www.youtube.com/watch?v=nO13-AHit6E)
 
-# Outline of our work
+## Outline of our work
 
 Datasets can be very high-dimensional. It is very common, for example, that images from experiments (nanotechnology, biology, astrophysics etc.),  and from ordinary life, have 1M pixels, each one counting for a dimension in the data space.
 
@@ -131,7 +131,7 @@ We provide the following tutorials:
 - Dynamics of the ID in VGG-16 (CIFAR-10) 
 -->
    
-  # References
+  ## References
   
   If you found this useful please consider citing the following paper
   
