@@ -26,7 +26,7 @@ Alessio Ansuini (1),  Alessandro Laio (1),  Jakob H. Macke (2),  Davide Zoccolan
 
 
 
-### Contents
+# Contents
 
 We provide
 
@@ -39,7 +39,7 @@ We provide
 
 - to frame this research in a broader perspective - embracing Neuroscience and Deep Learning - we point to the **seminar** given by Davide Zoccolan at the [ICTP Workshop on Science of Data Science | (smr 3283)](https://www.youtube.com/watch?v=nO13-AHit6E)
 
-### Outline of our work
+# Outline of our work
 
 Datasets can be very high-dimensional. It is very common, for example, that images from experiments (nanotechnology, biology, astrophysics etc.),  and from ordinary life, have 1M pixels, each one counting for a dimension in the data space.
 
@@ -52,7 +52,6 @@ We follow the evolution of representations along the layers of CNNs focusing on 
 <!---
 The idea of studying the intrinsic dimension of representations in deep network is not new. Many works already addressed this problem, with different approaches, and we refer to our paper for a  brief (due to lack of space) discussion of these works. 
 -->
-
 
 **Main findings**
 
