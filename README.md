@@ -124,15 +124,13 @@ Overall, we think that the dynamics of the ID is not yet completely understood, 
 
 <img src="./docs/figs/suppl_dynamics_cb_panel_C.png" width="700" />
 
-### Tutorials (work in progress)
-
+<!--### Tutorials (work in progress)
 We provide the following tutorials:
-
 - Extraction and ID computation on a small convolutional network (MNIST)
 - Multi-scale analysis (block-analysis)
-
 - Extraction and ID computation in a VGG-16 (ImageNet)
 - Dynamics of the ID in VGG-16 (CIFAR-10) 
+-->
 
 ### Reproduction of results
 
