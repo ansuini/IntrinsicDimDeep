@@ -35,7 +35,7 @@ We provide
 - detailed instructions for **reproducibility** of our results [here](./REPRODUCIBILITY.md)
 - **extra materials** (videos, slides, etc.) just below
 
-### Extras
+# Extras
 
 - to frame this research in a broader perspective - embracing Neuroscience and Deep Learning - we point to the **seminar** given by Davide Zoccolan at the [ICTP Workshop on Science of Data Science | (smr 3283)](https://www.youtube.com/watch?v=nO13-AHit6E)
 
@@ -131,7 +131,7 @@ We provide the following tutorials:
 - Dynamics of the ID in VGG-16 (CIFAR-10) 
 -->
    
-  ### References
+  # References
   
   If you found this useful please consider citing the following paper
   
