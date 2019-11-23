@@ -173,31 +173,35 @@ First of all you will have to download and unzip in the ROOT the data provided a
   - generate the train/test split:
   
     ```
-  $ python train_test_split.py
+  ​```
+    $python train_test_split.py
+  ​```
     ```
 
+    
+  
   - change directory to scripts/custom 
 
   - launch finetuning:
-  
+
     ```
   $ python finetune
     ```
-
+  
     This will finetune a VGG-16 pre-trained on ImageNet. At the end it will also extract representations and save them in data/custom/results by default
 
   - run the bash script
   
     ```
-  $ ./run.sh
-    ```
+    $ ./run.sh
+  ```
   
     This will analyze the extracted representations and generate the data (sav-
-    ing it by default) required for Figure 2 (there can be small fluctuations
-  due to the number of epochs of training that you use and/or the random
+  ing it by default) required for Figure 2 (there can be small fluctuations
+    due to the number of epochs of training that you use and/or the random
     splitting between train and test).
   
-  
+    
     
   You can visualize your results opening the notebook plots.ipynb in scripts/custom,
     decommenting the line that specifies to use your results.
