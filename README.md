@@ -92,8 +92,6 @@ Our main findings are:
   
 
   
-
-  
   
   <img src="./docs/figs/curvature_cb_panel_C.png" width="700" />
 
@@ -121,14 +119,10 @@ Our main observations are:
 
 <img src="./docs/figs/suppl_dynamics_cb_panel_A.png" width="700" />
 
-​    
 
 Taking a closer look to the early phases of training (now focusing only on the last hidden layer) we also found that, after a first compression phase (lasting approximately a half-epoch) the ID slowly expands and stabilizes to a higher value. This *change of regime* (from compression to expansion) is not accompanied in this case to the onset of overfitting, as it was observed in other works that used *local* measures of intrinsic dimension. It is important, for such comparisons, to remember that our ID estimate is a *global* one. 
 
 Overall, we think that the dynamics of the ID is not well understood, perhaps depending strongly on the architectures, datasets and optimization procedures (including small details such as learning rate, batch size etc.), and a sound understanding of how all these factors can have an influence on it requires further investigations.
-
-
-
 
 
 <img src="./docs/figs/suppl_dynamics_cb_panel_C.png" width="700" />
@@ -173,23 +167,15 @@ First of all you will have to download and unzip in the ROOT the data provided a
   - generate the train/test split:
   
     ```
-  ​```
     $ python train_test_split.py
-  ​```
-    ```
-
-    
+    ```  
   
   - change directory to scripts/custom 
 
   - launch finetuning:
 
-    
-
     ```
-    ​```
     $ python finetune
-  ​```
     ```
   
     This will finetune a VGG-16 pre-trained on ImageNet. At the end it will also extract representations and save them in data/custom/results by default
@@ -197,9 +183,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
 - run the bash script
   
     ```
-  ​```
     $ ./run.sh
-  ​```
     ```
     
     This will analyse the extracted representations and generate the data (saving it by default) required for Figure 2 (there can be small fluctuations due to the number of epochs of training that you use and/or the random splitting between train and test).
@@ -223,12 +207,8 @@ First of all you will have to download and unzip in the ROOT the data provided a
   To re-create the data from scratch:
 
   - ```
-    ​```
     $ ./last_hunchback.sh
-  ​```
     ```
-    
-    
 
 - **Figure 4 (ID and generalization)**
 
@@ -240,9 +220,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
   To re-create the data from scratch:
 
   - ```
-    ​```
     $ ./last_hidden.sh
-    ​```
     ```
 
 
@@ -257,12 +235,8 @@ First of all you will have to download and unzip in the ROOT the data provided a
   To re-create the data from scratch:
 
   - ```
-    ​```
     $ ./last_hidden_pca.sh
-    ​```
     ```
-
-  
 
 - **Figure 6 (MNIST)**
 
@@ -276,37 +250,27 @@ First of all you will have to download and unzip in the ROOT the data provided a
   - train the small convolutional network on all the datasets (MNIST,MNIST* and MNIST+)
 
     ```
-    ​```
     $ ./train_all.sh
-  ​```
     ```
 
     You could do the three trainings separately:
   
     ```
-  ​```
     $ ./mnist.sh
-    ​```
     ```
 
     ```
-    ​```
     $ ./mnist_grad.sh
-  ​```
     ```
 
     ```
-    ​```
     $ ./mnist_shuffled.sh
-  ​```
     ```
 
   - analyze the results in the three cases:
 
     ```
-  ​```
     $ ./analyze_all.sh
-    ​```
     ```
 
     
@@ -316,25 +280,19 @@ First of all you will have to download and unzip in the ROOT the data provided a
     Anyway, for exploration purposes you can choose at which epoch to extract the data.
 
     ```
-  ​```
     $ python analyze.py --dataset yourdataset --epoch yourepoch
-    ​```
     ```
 
   -  The shuffled dataset (MNIST+) and the dataset perturbed with the luminosity gradient (MNIST*) are provided. Anyway, you can create a new shuffled dataset
 
     ```
-    ​```
     $ python create_shuffled_mnist.py --save 1
-  ​```
     ```
   
     and / or a new MNIST perturbed with a higher or lower stretching parameter lambda
     
     ```
-  ​```
     $ python create_mnist_with_gradient.py --save 1 --lambdavar yourlambda
-    ​```
     ```
     
     
