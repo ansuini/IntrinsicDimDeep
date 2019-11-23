@@ -88,7 +88,11 @@ Our main findings are:
 
   A linear estimate based on PCA that we looked at is the number of eigenvectors that capture the 90% of variance in the data; we called this dimensionality estimate PC-ID.
 
-  What we found is that this PCA-based measure 1) gives much higher values of the ID and 2) is not able to distinguish qualitatively between trained and untrained networks. On the contrary, our ID estimate shows that for untrained networks the ID is substantially flat.
+  What we found is that this PCA-based measure
+  
+  - gives much higher values of than the ID 
+  
+  - **is not able to distinguish qualitatively between trained and untrained networks**. On the contrary, our ID estimate shows that for untrained networks the ID is substantially flat.
 
 <!---
 We observe that this is consistent with the fact that random linear transformations (neglecting the effect of non-linear activation functions) in high-dimensional space are close to orthogonal and thus it will tend to leave the intrinsic dimension of a low-dimensional manifolds, embedded in the source space, unchanged.
