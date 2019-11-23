@@ -98,7 +98,7 @@ We observe that this is consistent with the fact that random linear transformati
 
 **Further results: dynamics**
 
-We performed further experiments on the dynamics of the ID. These line of research is very important, in particular for the development of unsupervised approaches [Ma et al.](https://arxiv.org/abs/1806.02612), [Gong et al.](https://arxiv.org/abs/1803.09672).
+We performed further experiments on the dynamics of the ID. These line of research is very important, in particular for the development of unsupervised approaches (see for example [Ma et al.](https://arxiv.org/abs/1806.02612) and [Gong et al.](https://arxiv.org/abs/1803.09672)).
 Anyway, from the evidence we collected and from the results we found in the literature we are not able to draw systematic conclusions. 
 We performed these experiments on a VGG-16 network trained on CIFAR-10; the architecture and the optimization procedure used for these experiments is taken from https://github.com/kuangliu/pytorch-cifar.
 
