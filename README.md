@@ -1,4 +1,4 @@
-## Intrinsic dimension of data representations in deep neural networks
+# Intrinsic Dimension of Data Representations in Deep Neural Networks
 
 
 
@@ -293,7 +293,7 @@ First of all you will have to download and unzip in the ROOT the data provided a
     
   ### References
   
-  If you found this page useful please consider citing the following paper
+  If you found this useful please consider citing the following paper
   
   ```
   @article{ansuini2019intrinsic,
