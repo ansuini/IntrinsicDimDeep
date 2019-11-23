@@ -47,9 +47,12 @@ Of course, there is rich structure in interesting datasets, and this induces cor
 
 In our work we study the ID of data representations in the hidden layers of deep neural networks (DNN). It is well known that DNNs - in particular convolutional networks (CNN) - transform their input from the original space (pixels, sounds, etc.) to a progressively abstract form, that support classification and, eventually, downstream actions.  
 
-We follow the evolution of representations along the layers of CNNs focusing on its intrinsic dimension, using the method of estimation described in a recent paper by one of us: [Estimating the intrinsic dimension of datasets by a minimal neighborhood information]( https://www.nature.com/articles/s41598-017-11873-y).
+We follow the evolution of representations along the layers of CNNs focusing on its intrinsic dimension, using the method of estimation described in a recent paper by [Facco et al.]( https://www.nature.com/articles/s41598-017-11873-y).
 
+<!---
 The idea of studying the intrinsic dimension of representations in deep network is not new. Many works already addressed this problem, with different approaches, and we refer to our paper for a  brief (due to lack of space) discussion of these works. 
+-->
+
 
 **Main findings**
 
@@ -57,7 +60,7 @@ Our main findings are:
 
 - the ID profile, across a relevant number of state-of-the-art (pretrained) CNNs follows a curved shape that we informally nicknamed the "hunchback"
 
-  (to compare many different architectures we plotted the ID vs. a relative depth, which is the number of non-trivial transformations that the network performs on the input (convolutional and fully-connected layers' operations) divided by the total number of these transformations before the output)
+  (to compare many different architectures we plotted the ID vs. a *relative depth*, which is the number of non-trivial transformations that the network performs on the input (convolutional and fully-connected layers' operations) divided by the total number of these transformations before the output)
 
   
 
@@ -83,26 +86,20 @@ Our main findings are:
 
   A linear approach to dimensionality estimation based on PCA was unable to capture the actual dimensionality of representations. For example, we did not found clear eigenvalues gaps in the correlation matrix (normalized or not) and this is for itself an indication of curvature (but more evidence is provided in the paper, see for example Fig. 5 panel B)
 
-  A linear estimate based on PCA that we looked at is the number of eigenvectors that capture the 90 %​ of variance in the data; we called this dimensionality estimate PC-ID.
+  A linear estimate based on PCA that we looked at is the number of eigenvectors that capture the 90% of variance in the data; we called this dimensionality estimate PC-ID.
 
-  What we found is that this PCA-based measure gives much higher values of the ID and is not able to distinguish qualitatively between trained and untrained networks. On the contrary, our ID estimate shows that for untrained networks the ID is substantially flat.
+  What we found is that this PCA-based measure 1) gives much higher values of the ID and 2) is not able to distinguish qualitatively between trained and untrained networks. On the contrary, our ID estimate shows that for untrained networks the ID is substantially flat.
 
-  We observe that this is consistent with the fact that random linear transformations (neglecting the effect of non-linear activation functions) in high-dimensional space are close to orthogonal and thus it will tend to leave the intrinsic dimension of a low-dimensional manifolds, embedded in the source space, unchanged.
+<!---
+We observe that this is consistent with the fact that random linear transformations (neglecting the effect of non-linear activation functions) in high-dimensional space are close to orthogonal and thus it will tend to leave the intrinsic dimension of a low-dimensional manifolds, embedded in the source space, unchanged.
+--->
 
-  
+ <img src="./docs/figs/curvature_cb_panel_C.png" width="700" />
 
-  
-  
-  <img src="./docs/figs/curvature_cb_panel_C.png" width="700" />
+**Further results: dynamics**
 
-
-
-**Further results**
-
-We performed further experiments on the dynamics of the ID. These line of research is very important, in particular for the development of unsupervised approaches, as is stated in some precedent works we referred to in our paper.
-
-But from the evidence we collected and from the results we found in the literature we are not able to draw definitive conclusions yet.
-
+We performed further experiments on the dynamics of the ID. These line of research is very important, in particular for the development of unsupervised approaches ![Ma et al.](https://arxiv.org/abs/1806.02612), ![Gong et al.](https://arxiv.org/abs/1803.09672).
+Anyway, from the evidence we collected and from the results we found in the literature we are not able to draw systematic conclusions. 
 We performed these experiments on a VGG-16 network trained on CIFAR-10; the architecture and the optimization procedure used for these experiments is taken from https://github.com/kuangliu/pytorch-cifar.
 
 Our main observations are:
@@ -115,14 +112,12 @@ Our main observations are:
 
   In the following figure, we can easily appreciate these findings by looking at how the ID in the untrained network (thick black line), gradually transforms into the ID profile of the fully trained network (light yellow).
   
-  
 
 <img src="./docs/figs/suppl_dynamics_cb_panel_A.png" width="700" />
 
+Taking a closer look to the early phases of training (now focusing only on the last hidden layer) we also found that, after a first compression phase (lasting approximately a half-epoch) the ID slowly expands and stabilizes to a higher value. This *change of regime* (from compression to expansion) is not accompanied in this case to the onset of overfitting, as it was observed in ![Ma et al.](https://arxiv.org/abs/1806.02612) that used *local* measures of intrinsic dimension. It is important, for such comparisons, to remember that our ID estimate is a *global* one. 
 
-Taking a closer look to the early phases of training (now focusing only on the last hidden layer) we also found that, after a first compression phase (lasting approximately a half-epoch) the ID slowly expands and stabilizes to a higher value. This *change of regime* (from compression to expansion) is not accompanied in this case to the onset of overfitting, as it was observed in other works that used *local* measures of intrinsic dimension. It is important, for such comparisons, to remember that our ID estimate is a *global* one. 
-
-Overall, we think that the dynamics of the ID is not well understood, perhaps depending strongly on the architectures, datasets and optimization procedures (including small details such as learning rate, batch size etc.), and a sound understanding of how all these factors can have an influence on it requires further investigations.
+Overall, we think that the dynamics of the ID is not yet completely understood, perhaps depending on the architectures, datasets and optimization procedures.
 
 
 <img src="./docs/figs/suppl_dynamics_cb_panel_C.png" width="700" />
