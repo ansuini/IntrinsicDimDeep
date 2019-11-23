@@ -98,7 +98,7 @@ We observe that this is consistent with the fact that random linear transformati
 
 **Further results: dynamics**
 
-We performed further experiments on the dynamics of the ID. These line of research is very important, in particular for the development of unsupervised approaches ![Ma et al.](https://arxiv.org/abs/1806.02612), ![Gong et al.](https://arxiv.org/abs/1803.09672).
+We performed further experiments on the dynamics of the ID. These line of research is very important, in particular for the development of unsupervised approaches [Ma et al.](https://arxiv.org/abs/1806.02612), [Gong et al.](https://arxiv.org/abs/1803.09672).
 Anyway, from the evidence we collected and from the results we found in the literature we are not able to draw systematic conclusions. 
 We performed these experiments on a VGG-16 network trained on CIFAR-10; the architecture and the optimization procedure used for these experiments is taken from https://github.com/kuangliu/pytorch-cifar.
 
@@ -115,7 +115,7 @@ Our main observations are:
 
 <img src="./docs/figs/suppl_dynamics_cb_panel_A.png" width="700" />
 
-Taking a closer look to the early phases of training (now focusing only on the last hidden layer) we also found that, after a first compression phase (lasting approximately a half-epoch) the ID slowly expands and stabilizes to a higher value. This *change of regime* (from compression to expansion) is not accompanied in this case to the onset of overfitting, as it was observed in ![Ma et al.](https://arxiv.org/abs/1806.02612) that used *local* measures of intrinsic dimension. It is important, for such comparisons, to remember that our ID estimate is a *global* one. 
+Taking a closer look to the early phases of training (now focusing only on the last hidden layer) we also found that, after a first compression phase (lasting approximately a half-epoch) the ID slowly expands and stabilizes to a higher value. This *change of regime* (from compression to expansion) is not accompanied in this case to the onset of overfitting, as it was observed in [Ma et al.](https://arxiv.org/abs/1806.02612) that used *local* measures of intrinsic dimension. It is important, for such comparisons, to remember that our ID estimate is a *global* one. 
 
 Overall, we think that the dynamics of the ID is not yet completely understood, perhaps depending on the architectures, datasets and optimization procedures.
 
