@@ -8,7 +8,7 @@ This is the repository associated to our **NeurIPS 2019** paper
 
 **Paper Authors**
 
-Alessio Ansuini$^{(1)}$,  Alessandro Laio$^{(1)}$,  Jakob H. Macke$^{(2)}$,  Davide Zoccolan$^{(1)}$
+Alessio Ansuini (1),  Alessandro Laio (1),  Jakob H. Macke (2),  Davide Zoccolan (1)
 
 (1) International School for Advanced Studies (SISSA)  https://www.sissa.it/ 
 
@@ -41,7 +41,7 @@ We provide
 
 ### Outline of our work
 
-Datasets can be very high-dimensional. It is very common, for example, that images from experiments (nanotechnology, biology, astrophysics etc.),  and from ordinary life, have  $\sim 10^6$ pixels, each one counting for a dimension in the data space.
+Datasets can be very high-dimensional. It is very common, for example, that images from experiments (nanotechnology, biology, astrophysics etc.),  and from ordinary life, have 1M pixels, each one counting for a dimension in the data space.
 
 Of course, there is rich structure in interesting datasets, and this induces correlations and (soft) constraints among the dimensions, that reflect geometrically on the fact that data lie in the neighbourhoods of low-dimensional manifolds. We call *embedding dimension* (ED) the dimensionality of the space hosting the data and *intrinsic dimension* (ID) the dimensionality of the manifold that approximates the data points. 
 
@@ -83,11 +83,11 @@ Our main findings are:
 
   A linear approach to dimensionality estimation based on PCA was unable to capture the actual dimensionality of representations. For example, we did not found clear eigenvalues gaps in the correlation matrix (normalized or not) and this is for itself an indication of curvature (but more evidence is provided in the paper, see for example Fig. 5 panel B)
 
-  A linear estimate based on PCA that we looked at is the number of eigenvectors that capture the $90 \%$ of variance in the data; we called this dimensionality estimate PC-ID.
+  A linear estimate based on PCA that we looked at is the number of eigenvectors that capture the 90 %​ of variance in the data; we called this dimensionality estimate PC-ID.
 
   What we found is that this PCA-based measure gives much higher values of the ID and is not able to distinguish qualitatively between trained and untrained networks. On the contrary, our ID estimate shows that for untrained networks the ID is substantially flat.
 
-  We observe that this is consistent with the fact that random linear transformations (neglecting the effect of non-linear activation functions) in high-dimensional space are close to orthogonal and thus it will tend to leave the intrinsic dimension of a low-dimensional manifolds, embdedded in the source space, unchanged.
+  We observe that this is consistent with the fact that random linear transformations (neglecting the effect of non-linear activation functions) in high-dimensional space are close to orthogonal and thus it will tend to leave the intrinsic dimension of a low-dimensional manifolds, embedded in the source space, unchanged.
 
   
 
