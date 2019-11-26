@@ -17,14 +17,15 @@ We will discuss how to reproduce the main results in order of appearance in the 
 
 The first steps are
 
-- clone the repository
+1. clone the repository
   ```
   $ git clone https://github.com/ansuini/IntrinsicDimDeep.git
   ```  
-- change directory to IntrinsicDimDeep (this relative directory we will be referred as ROOT in what follows)
+2. change directory to IntrinsicDimDeep (this relative directory we will be referred as ROOT in what follows)
 
-- download and unzip in ROOT the data provided at this [link](https://figshare.com/s/8a039f58c7b84a215b6d)
+3. download and unzip in ROOT the data provided at this [link](https://figshare.com/s/8a039f58c7b84a215b6d)
 
+Now you are ready to reproduce the results:
 
 - **Figure 2: VGG-16-R on a custom dataset**
 
