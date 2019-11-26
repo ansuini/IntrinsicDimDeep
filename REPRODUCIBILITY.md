@@ -9,13 +9,22 @@
 - tqdm (4.31.1)
 - torchsummary
 
-We will refer as ROOT as the root of the repository directory: IntrinsicDimDeep.  
 
 **Results in main text**
 
 We will discuss how to reproduce the main results in order of appearance in the main text.
 
-First of all you will have to download and unzip in the ROOT the data provided at this [link](https://figshare.com/s/8a039f58c7b84a215b6d).
+
+The first steps are
+
+- clone the repository
+  ```
+  $ git clone https://github.com/ansuini/IntrinsicDimDeep.git
+  ```  
+- change directory to IntrinsicDimDeep (this relative directory we will be referred as ROOT in what follows)
+
+- download and unzip in ROOT the data provided at this [link](https://figshare.com/s/8a039f58c7b84a215b6d)
+
 
 - **Figure 2: VGG-16-R on a custom dataset**
 
