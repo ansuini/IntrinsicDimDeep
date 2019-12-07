@@ -29,15 +29,15 @@ Alessio Ansuini (1),  Alessandro Laio (1),  Jakob H. Macke (2),  Davide Zoccolan
 We provide
 
 - a **brief outline** of our work, on this page
-- a few [**tutorials**](https://github.com/ansuini/IntrinsicDimDeep/tree/master/tutorials) where we also point to possible extensions and open problems (**UNDER CONSTRUCTION!**)
+- (**UNDER CONSTRUCTION!**) a few [**tutorials**](https://github.com/ansuini/IntrinsicDimDeep/tree/master/tutorials) where we also point to possible extensions and open problems 
 - detailed instructions for **reproducibility** of our results [here](./REPRODUCIBILITY.md)
 - **extra materials** (videos, slides, etc.) just below
 
 ## Extras
 
-- to frame this research in a broader perspective - embracing Neuroscience and Deep Learning - we point to the **seminar** given by Davide Zoccolan at the [ICTP Workshop on Science of Data Science | (smr 3283)](https://www.youtube.com/watch?v=nO13-AHit6E)
+- My [poster](https://drive.google.com/open?id=14SgF5BSVeAwEYo52gDH4v0ZgkzR_NpTa) at NeurIPS 
 
-- my [poster](https://drive.google.com/open?id=14SgF5BSVeAwEYo52gDH4v0ZgkzR_NpTa) at NeurIPS 
+- [Davide Zoccolan](https://people.sissa.it/~zoccolan/VisionLab/Home.html) frames this research in a broad perspective - embracing Neuroscience and Deep Learning in this **seminar** at the [ICTP Workshop on Science of Data Science | (smr 3283)](https://www.youtube.com/watch?v=nO13-AHit6E)
 
 ## Outline of our work
 
