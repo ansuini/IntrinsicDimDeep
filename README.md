@@ -44,6 +44,8 @@ at the ICTP Workshop on Science of Data Science | (smr 3283).
 
 ## Outline of our work
 
+**Prologue**
+
 Datasets can be very high-dimensional. In images, for example, each pixel counts for one (or three if coloured)
 dimensions, and it is very common then to find datasets whose dimensionality is in the range of 1,000,000 or more. 
 Countless examples could be made from the field of biology (genomics, epigenomics), particle physics, et cetera.
@@ -64,7 +66,6 @@ dimension (in this case) is two.
 It turns out, in fact, that ID = 2 because we need only two coordinates (one angle for each 
 generating circle) to specify uniquely a point on its surface.
 
-
 When we are given a new dataset, it is very often the case that we do not know much about it, even basic
 things like what is the process that generated it.
 A very good question to ask in this case is "what is the intrinsic dimensionality of the data?" 
@@ -72,7 +73,11 @@ A very good question to ask in this case is "what is the intrinsic dimensionalit
 In our work we used representations in the hidden layers of deep neural networks (DNN) as our data.
 The hope is that investigating their intrinsic dimensionality we can acquire a drop of knowledge
 that could help us - in synergy with the information acquired from other approaches - in elucidating 
-the inner workings of deep neural networks. 
+the inner workings of deep neural networks. We also hope that the method of estimation used in
+this paper will (see below) will be helpful in many other problems in deep learning, that we did not
+yet address (or imagine).
+
+**Main findings**
 
 It is well known that DNNs - in particular convolutional networks (CNN) - transform their input 
 from the original space (pixels, sounds, etc.) to a progressively abstract form, 
@@ -80,12 +85,6 @@ that support classification and, eventually, downstream actions.
 
 We follow the evolution of representations along the layers of CNNs focusing on its 
 intrinsic dimension, using the method of estimation described in a recent paper by [Facco et al.]( https://www.nature.com/articles/s41598-017-11873-y).
-
-<!---
-The idea of studying the intrinsic dimension of representations in deep network is not new. Many works already addressed this problem, with different approaches, and we refer to our paper for a  brief (due to lack of space) discussion of these works. 
--->
-
-**Main findings**
 
 Our main findings are:
 
