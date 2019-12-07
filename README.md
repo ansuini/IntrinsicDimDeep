@@ -47,12 +47,13 @@ at the ICTP Workshop on Science of Data Science | (smr 3283).
 **Prologue**
 
 Datasets can be very high-dimensional. In images, for example, each pixel counts for one (or three if coloured)
-dimensions, and it is very common then to find datasets whose dimensionality is in the range of 1,000,000 or more. 
+dimensions, and it is very common to find datasets whose dimensionality is larger than 1,000,000. 
 Countless examples could be made from the field of biology (genomics, epigenomics), particle physics, et cetera.
 
 This **embedding dimension** (ED) is the number of degrees of freedom of the data in the form they are normally
 used (unless they are compressed) while the **intrinsic dimension** (ID) is *the minimal number of parameters 
-needed to describe it*.
+needed to describe it*. Of course the ID could be much lower than the ED, depending on how much structure and 
+redundancy is present in the original representation!
 
 For example let us consider a torus in 3 dimensions
 
