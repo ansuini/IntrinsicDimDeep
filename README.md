@@ -63,7 +63,7 @@ Our main findings are:
 
   
 
-<img src="./docs/figs/hunchbacks_cb_panel_B.png" width="600" />
+<img src="./docs/figs/hunchbacks_panel_B.png" width="600" />
 
 
 
@@ -73,7 +73,7 @@ Our main findings are:
 
   
 
-<img src="./docs/figs/lasthidden_cb.png" width="600" />
+<img src="./docs/figs/lasthidden.png" width="600" />
 
 - representations in hidden layers lie typically on *curved manifolds*.
 
