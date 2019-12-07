@@ -35,15 +35,30 @@ We provide
 
 ## Extras
 
-- My [poster](https://drive.google.com/open?id=14SgF5BSVeAwEYo52gDH4v0ZgkzR_NpTa) at NeurIPS 
+- Alessio Ansuini's [**poster**](https://drive.google.com/open?id=14SgF5BSVeAwEYo52gDH4v0ZgkzR_NpTa) at NeurIPS 
 
-- [Davide Zoccolan](https://people.sissa.it/~zoccolan/VisionLab/Home.html) frames this research in a broad perspective - embracing Neuroscience and Deep Learning in this **seminar** at the [ICTP Workshop on Science of Data Science | (smr 3283)](https://www.youtube.com/watch?v=nO13-AHit6E)
+- [Davide Zoccolan](https://people.sissa.it/~zoccolan/VisionLab/Home.html)'s interdisciplinary [**seminar**](https://www.youtube.com/watch?v=nO13-AHit6E) - at the interface between Neuroscience and Deep Learning - given 
+at the ICTP Workshop on Science of Data Science | (smr 3283).
+
+
 
 ## Outline of our work
 
-Datasets can be very high-dimensional. It is very common, for example, that images from experiments (nanotechnology, biology, astrophysics etc.),  and from ordinary life, have 1M pixels, each one counting for a dimension in the data space.
+Datasets can be very high-dimensional. In images, for example, each pixel counts for one (or three if coloured)
+dimensions, and it is very common then to find datasets whose dimensionality is in the range of $\sim 10^6 - 10^7$. 
+Countless examples could be made from the field of biology (genomics, epigenomics), particle physics, et cetera.
 
-Of course, there is rich structure in interesting datasets, and this induces correlations and (soft) constraints among the dimensions, that reflect geometrically on the fact that data lie in the neighbourhoods of low-dimensional manifolds. We call *embedding dimension* (ED) the dimensionality of the space hosting the data and *intrinsic dimension* (ID) the dimensionality of the manifold that approximates the data points. 
+This **embedding dimension** (ED) is the number of degrees of freedom of the data in the form they are normally
+used (unless they are compressed) while the **intrinsic dimension** (ID) is *the minimal number of parameters 
+needed to describe it*.
+
+For example let us consider the torus in 3 dimensions:
+
+<img src="./docs/figs/torus_coords.png" width="600" />
+
+in this case the ED is equal to three (because the torus is immersed in $R^3$) but the ID is two because we need 
+only two coordinates (the angles on the two circles) to select a point on its surface.
+
 
 In our work we study the ID of data representations in the hidden layers of deep neural networks (DNN). It is well known that DNNs - in particular convolutional networks (CNN) - transform their input from the original space (pixels, sounds, etc.) to a progressively abstract form, that support classification and, eventually, downstream actions.  
 
