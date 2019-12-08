@@ -48,23 +48,19 @@ at the ICTP Workshop on Science of Data Science | (smr 3283).
 
 Datasets can be very high-dimensional. In images, each pixel counts for one dimension 
 (three if coloured), so high-resolution images typically have dimensionality
-larger than 1,000,000. 
-
-Countless examples could be made from the fields of biology (genomics, epigenomics), 
+larger than 1,000,000. Countless examples could be made from the fields of biology (genomics, epigenomics), 
 particle physics, et cetera.
 
 The **embedding dimension** (ED) is the number of *features* in the data
 (number of pixels, number of genes expressed in microarrays, etc.) and 
 this is usually the number that counts when data are stored and transmitted
 (unless we compress it).
-
-The **intrinsic dimension** (ID) is, informally,
+A very different concept is the **intrinsic dimension** (ID) that is, informally, 
 
 *the minimal number of parameters needed to describe the data*.
 
 The ID could be much lower than the ED, depending on how much structure and 
 redundancy is present in the original representation.
-
 Let us make an example: a torus in 3 dimensions
 
 <img src="./docs/figs/torus_coords.png" width="600" />
@@ -86,7 +82,6 @@ dimensionality of this dataset is a value close to two, also
 if the *local* dimensionality of the noise perturbation (almost by
 definition of noise) is three.
 
-
 When we are faced with a new dataset, very often we do not much about the 
 process that generated it. (In the case of the torus, for example, we
 could ignore the fact that, in order to generate these data, it was
@@ -99,12 +94,14 @@ what is the intrinsic dimensionality to start with.
 It would be helpful for many purposes: compression, density estimation etc.
 
 In our work we investigated the intrinsic dimensionality of
-representations in the hidden layers of deep neural networks.
+representations in the hidden layers of deep convolutional networks (CNNs).
+**The hope is to use the ID of these representations - in synergy with other approaches - 
+in elucidating the inner workings of these networks and, more in general, 
+of any deep model.**
 
-The hope is to use the ID of these representations - in synergy with other approaches - 
-in elucidating the inner workings of DNNs. We also hope that the method of estimation used in
-this paper will be helpful in many other problems in deep learning and the analysis 
-of datasets in general.
+We also hope that the method of ID estimation used in this paper will be 
+helpful in many other problems outside deep learning, in and the analysis 
+of datasets in general (see [Facco et al.]( https://www.nature.com/articles/s41598-017-11873-y)).
 
 ### **Our work**
 
