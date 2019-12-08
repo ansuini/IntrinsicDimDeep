@@ -45,7 +45,7 @@ at the ICTP Workshop on Science of Data Science | (smr 3283).
 
 ## Introduction to our work
 
-**Prologue**
+### **Prologue**
 
 Datasets can be very high-dimensional. In images, each pixel counts for one dimension 
 (three if coloured), so high-resolution images typically have dimensionality
@@ -107,7 +107,7 @@ in elucidating the inner workings of DNNs. We also hope that the method of estim
 this paper will be helpful in many other problems in deep learning and the analysis 
 of datasets in general.
 
-**Our work**
+### **Our work**
 
 It is well known that DNNs - in particular convolutional networks (CNNs) - transform their input 
 from the original space (pixels, sounds, etc.) to a progressively abstract form, 
@@ -173,7 +173,7 @@ We provide the following tutorials:
 - Dynamics of the ID in VGG-16 (CIFAR-10) 
 -->
    
-  ## References
+  ### References
   
   If you found this useful please consider citing the following paper
   
