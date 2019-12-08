@@ -148,24 +148,17 @@ Our main findings are:
 
 **Further results: dynamics**
 
-We performed further experiments on the dynamics of the ID. These line of research is very important, in particular for the development of unsupervised approaches (see for example [Ma et al.](https://arxiv.org/abs/1806.02612) and [Gong et al.](https://arxiv.org/abs/1803.09672)).
-Anyway, from the evidence we collected and from the results we found in the literature we are not able to draw systematic conclusions. 
+These line of research on dynamics is very important for the development of unsupervised approaches (see for example [Ma et al.](https://arxiv.org/abs/1806.02612) and [Gong et al.](https://arxiv.org/abs/1803.09672)).
 We performed these experiments on a VGG-16 network trained on CIFAR-10; the architecture and the optimization procedure used for these experiments is taken from https://github.com/kuangliu/pytorch-cifar.
 
-Our main observations are:
+What we found is:
 
-- during training different layers show different dynamics.
-
-  This is already clear from the figure above, by comparing the ID of untrained and trained VGG-16 (respectively, black dashed and continuous line). 
-
-  In new experiments, described in the Supplementary Materials, we also found that 1) the final layers compress representations 2) the initial and intermediate layers expand it.
-
-  In the following figure, we can easily appreciate these findings by looking at how the ID in the untrained network (thick black line), gradually transforms into the ID profile of the fully trained network (light yellow).
+- during training different layers show different dynamics: the final layers compress representations,
+  while the initial and intermediate layers expand it
   
+  <img src="./docs/figs/dynamics_panel_A.png" width="600" />
 
-<img src="./docs/figs/dynamics_panel_A.png" width="600" />
-
-Taking a closer look at the early phases of training (now focusing only on the last hidden layer) we also found that, after a first compression phase (lasting approximately a half-epoch) the ID slowly expanded and stabilized at a higher value. This *change of regime* (from compression to expansion) is not accompanied in this case to the onset of overfitting, as it was observed in [Ma et al.](https://arxiv.org/abs/1806.02612) that used *local* measures of intrinsic dimension. It is important, for such comparisons, to remember that our ID estimate is a *global* one. 
+- focusing only on the last hidden layer, after a first compression phase (lasting approximately a half-epoch) the ID slowly expanded and stabilized at a higher value. This *change of regime* (from compression to expansion) is not accompanied in our experiments to the onset of overfitting, as it was observed in [Ma et al.](https://arxiv.org/abs/1806.02612) that used *local* measures of intrinsic dimension. It is important, for such comparisons, to remember also that our ID estimate is *global*. 
 
 Overall, we think that the dynamics of the ID is not yet completely understood, perhaps depending on the architectures, datasets and optimization procedures.
 
