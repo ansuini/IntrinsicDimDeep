@@ -107,54 +107,42 @@ in elucidating the inner workings of DNNs. We also hope that the method of estim
 this paper will be helpful in many other problems in deep learning and the analysis 
 of datasets in general.
 
-**Main**
+**Our work**
 
-It is well known that DNNs - in particular convolutional networks (CNN) - transform their input 
+It is well known that DNNs - in particular convolutional networks (CNNs) - transform their input 
 from the original space (pixels, sounds, etc.) to a progressively abstract form, 
-that support classification and, eventually, downstream actions.  
+that support classification and downstream actions.  
 
-We follow the evolution of representations along the layers of CNNs focusing on its 
-intrinsic dimension, using the method of estimation described in a recent paper by [Facco et al.]( https://www.nature.com/articles/s41598-017-11873-y).
+We follow the evolution of the ID of representations along the layers of CNNs, using the estimation 
+method described in [Facco et al.]( https://www.nature.com/articles/s41598-017-11873-y).
 
 Our main findings are:
 
-- the ID profile, across a relevant number of state-of-the-art (pretrained) CNNs follows a curved shape that we informally nicknamed the "hunchback"
+- the ID profile, across a relevant number of SOTA (pre-trained) CNNs follows a curved shape that we informally nicknamed the "hunchback"
 
-  (to compare many different architectures we plotted the ID vs. a *relative depth*, which is the number of non-trivial transformations that the network performs on the input (convolutional and fully-connected layers' operations) divided by the total number of these transformations before the output)
+  (to compare different architectures we plotted the ID vs. a *relative depth*, which is the number of non-trivial transformations that the network performs on the input (convolutional and fully-connected layers' operations) divided by the total number of these transformations before the output)
 
-  
+
 
 <img src="./docs/figs/hunchbacks_panel_B.png" width="600" />
 
 
 
-- the ID in the last hidden layer (for the same set of networks) is predictive of its generalization performance
+- the ID in the last hidden layer is predictive of its generalization performance
 
-  (this result holds across and within architecture classes, see for example the inset for ResNets)
+  (this result holds also within architecture classes, see inset for ResNets)
 
-  
 
 <img src="./docs/figs/lasthidden.png" width="600" />
 
-- representations in hidden layers lie typically on *curved manifolds*.
+- representations, even in the last hidden layer are *curved*.
 
-  This result may not be surprising for the input and intermediate layers: it is commonly accepted that, due to the complex constraints that shape categories, object manifolds are typically twisted and curved.
+  This indicates that a flattening of data manifolds may not be a general computational goal that deep networks strive to achieve: progressive reduction of the ID, rather than gradual flattening, seems to be the key to achieving linearly separable representations.  
 
-  But we observed that also representations in the last hidden layer are curved, and this indicates that a flattening of data manifolds may not be a general computational goal that deep networks strive to achieve: progressive reduction of the ID, rather than gradual flattening, seems to be the key to achieving linearly separable representations.  
-
-  A linear approach to dimensionality estimation based on PCA was unable to capture the actual dimensionality of representations. For example, we did not found clear eigenvalues gaps in the correlation matrix (normalized or not) and this is for itself an indication of curvature (but more evidence is provided in the paper, see for example Fig. 5 panel B)
-
-  A linear estimate based on PCA that we looked at is the number of eigenvectors that capture the 90% of variance in the data; we called this dimensionality estimate PC-ID.
-
-  What we found is that this PCA-based measure:
-  - gives much higher values than the ID (typically one or two orders of magnitude larger)
-  - **is not able to distinguish qualitatively between trained and untrained networks**. 
+  A linear approach based on PCA (PC-ID = number of principal components that capture the 90% of variance in the data)
+  was unable to capture the actual dimensionality, since **is not able to distinguish qualitatively between trained and untrained networks**. 
   
-  On the contrary, our ID estimate shows that for untrained networks the ID is substantially flat, therefore the hunchback shapes we found in trained networks are a genuine effect of training.
-
-<!---
-We observe that this is consistent with the fact that random linear transformations (neglecting the effect of non-linear activation functions) in high-dimensional space are close to orthogonal and thus it will tend to leave the intrinsic dimension of a low-dimensional manifolds, embedded in the source space, unchanged.
---->
+  Our ID estimates shows that, on the contrary, in untrained networks the ID is flat, therefore the hunchback shapes we found in trained networks are a genuine effect of training.
 
  <img src="./docs/figs/curvature_cb_panel_C.png" width="600" />
 
