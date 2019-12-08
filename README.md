@@ -29,7 +29,6 @@ Alessio Ansuini (1),  Alessandro Laio (1),  Jakob H. Macke (2),  Davide Zoccolan
 We provide
 
 - a **brief outline** of our work, on this page
-<!-- - (**UNDER CONSTRUCTION!**) a few [**tutorials**](https://github.com/ansuini/IntrinsicDimDeep/tree/master/tutorials) where we also point to possible extensions and open problems -->
 - detailed instructions for **reproducibility** of our results [here](./REPRODUCIBILITY.md)
 - **extra materials** (videos, slides, etc.) just below
 
