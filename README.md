@@ -47,39 +47,67 @@ at the ICTP Workshop on Science of Data Science | (smr 3283).
 
 **Prologue**
 
-Datasets can be very high-dimensional. In images, for example, each pixel counts for one (or three if coloured)
-dimensions, and it is very common to find datasets whose dimensionality is larger than 1,000,000. 
-Countless examples could be made from the field of biology (genomics, epigenomics), particle physics, et cetera.
+Datasets can be very high-dimensional. In images, each pixel counts for one dimension 
+(three if coloured), so high-resolution images typically have dimensionality
+larger than 1,000,000. 
 
-This **embedding dimension** (ED) is the number of degrees of freedom of the data in the form they are normally
-used (unless they are compressed) while the **intrinsic dimension** (ID) is *the minimal number of parameters 
-needed to describe it*. Of course the ID could be much lower than the ED, depending on how much structure and 
-redundancy is present in the original representation!
+Countless examples could be made from the fields of biology (genomics, epigenomics), 
+particle physics, et cetera.
 
-For example let us consider a torus in 3 dimensions
+The **embedding dimension** (ED) is the number of *features* in the data
+(number of pixels, number of genes expressed in microarrays, etc.) and 
+this is usually the number that counts when data are stored and transmitted
+(unless we compress it).
+
+The **intrinsic dimension** (ID) is, informally,
+
+*the minimal number of parameters needed to describe the data*.
+
+The ID could be much lower than the ED, depending on how much structure and 
+redundancy is present in the original representation.
+
+Let us make an example: a torus in 3 dimensions
 
 <img src="./docs/figs/torus_coords.png" width="600" />
 
-When we use the euclidean coordinates, in order to specify a point on its surface
-we give three values: ED = 3. 
-But in such a description we are not taking into account the structure of this surface.
-We are not even taking into account that *it's a surface*, i.e. an object whose intrinsic
-dimension (in this case) is two.
-It turns out, in fact, that ID = 2 because we need only two coordinates (one angle for each 
+When we use the euclidean coordinates we can specify 
+a point on the torus giving three numbers: ED = 3. 
+But in such a description we are not taking into account 
+the structure of this surface.
+We are not even taking into account that *it's a surface*.
+It turns out that, in fact, the ID = 2 in this case,
+because we need only two coordinates (one angle for each 
 generating circle) to specify uniquely a point on its surface.
 
-When we are given a new dataset, it is very often the case that we do not know much about it, even basic
-things like what is the process that generated it.
-A very good question to ask in this case is "what is the intrinsic dimensionality of the data?" 
+Now let us imagine a dataset composed of a number of points
+lying close to the torical surface, with some small fluctuations due to 
+the presence of noise.
+What we require from an algorithm that estimates the intrinsic 
+dimensionality of this dataset is a value close to two, also
+if the *local* dimensionality of the noise perturbation (almost by
+definition of noise) is three.
 
-In our work we used representations in the hidden layers of deep neural networks (DNN) as our data.
-The hope is that investigating their intrinsic dimensionality we can acquire a drop of knowledge
-that could help us - in synergy with the information acquired from other approaches - in elucidating 
-the inner workings of deep neural networks. We also hope that the method of estimation used in
-this paper will (see below) will be helpful in many other problems in deep learning, that we did not
-yet address (or imagine).
 
-**Main findings**
+When we are faced with a new dataset, very often we do not much about the 
+process that generated it. (In the case of the torus, for example, we
+could ignore the fact that, in order to generate these data, it was
+enough to choose random pairs of angles with some probability distribution,
+transform angles in euclidean coordinates, and then add a small random
+perturbation to each of these points.)
+
+So, in general, it would be helpful, when exploring data, to know
+what is the intrinsic dimensionality to start with.
+It would be helpful for many purposes: compression, density estimation etc.
+
+In our work we investigated the intrinsic dimensionality of
+representations in the hidden layers of deep neural networks.
+
+The hope is to use the ID of these representations - in synergy with other approaches - 
+in elucidating the inner workings of DNNs. We also hope that the method of estimation used in
+this paper will be helpful in many other problems in deep learning and the analysis 
+of datasets in general.
+
+**Main**
 
 It is well known that DNNs - in particular convolutional networks (CNN) - transform their input 
 from the original space (pixels, sounds, etc.) to a progressively abstract form, 
