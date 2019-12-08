@@ -44,6 +44,8 @@ at the ICTP Workshop on Science of Data Science | (smr 3283).
 
 ## Introduction to our work
 
+3 min read
+
 ### **Prologue**
 
 Datasets can be very high-dimensional. In images, each pixel counts for one dimension 
@@ -65,7 +67,7 @@ Let us make an example: a torus in 3 dimensions
 
 <img src="./docs/figs/torus_coords.png" width="600" />
 
-When we use the euclidean coordinates we can specify 
+When we use euclidean coordinates we can specify 
 a point on the torus giving three numbers: ED = 3. 
 But in such a description we are not taking into account 
 the structure of this surface.
