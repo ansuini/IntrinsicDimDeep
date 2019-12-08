@@ -28,13 +28,13 @@ Alessio Ansuini (1),  Alessandro Laio (1),  Jakob H. Macke (2),  Davide Zoccolan
 
 We provide
 
-- a **brief outline** of our work, on this page
-- detailed instructions for **reproducibility** of our results [here](./REPRODUCIBILITY.md)
-- **extra materials** (videos, slides, etc.) just below
+- an **introduction** to our work, on this page
+- detailed [instructions](./REPRODUCIBILITY.md) for **reproducibility** of our results 
+- **extra materials** (videos, slides, etc.)
 
 We will provide in future weeks/months a few **tutorials** pointing to possible extensions and open problems.
 
-## Extras
+## Extra materials
 
 - Alessio Ansuini's [**poster**](https://drive.google.com/open?id=14SgF5BSVeAwEYo52gDH4v0ZgkzR_NpTa) at NeurIPS 
 
@@ -43,7 +43,7 @@ at the ICTP Workshop on Science of Data Science | (smr 3283).
 
 
 
-## Outline of our work
+## Introduction to our work
 
 **Prologue**
 
