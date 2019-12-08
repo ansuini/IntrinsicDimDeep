@@ -29,7 +29,7 @@ Alessio Ansuini (1),  Alessandro Laio (1),  Jakob H. Macke (2),  Davide Zoccolan
 We provide
 
 - an **introduction** to our work, on this page
-- detailed [instructions](./REPRODUCIBILITY.md) for **reproducibility** of our results 
+- detailed [**instructions**](./REPRODUCIBILITY.md) for **reproducibility** of our results 
 - **extra materials** (videos, slides, etc.)
 
 We will provide in future weeks/months a few **tutorials** pointing to possible extensions and open problems.
@@ -38,9 +38,8 @@ We will provide in future weeks/months a few **tutorials** pointing to possible 
 
 - Alessio Ansuini's [**poster**](https://drive.google.com/open?id=14SgF5BSVeAwEYo52gDH4v0ZgkzR_NpTa) at NeurIPS 
 
-- [Davide Zoccolan](https://people.sissa.it/~zoccolan/VisionLab/Home.html)'s interdisciplinary [**seminar**](https://www.youtube.com/watch?v=nO13-AHit6E) - at the interface between Neuroscience and Deep Learning - given 
+- [**Davide Zoccolan**](https://people.sissa.it/~zoccolan/VisionLab/Home.html)'s interdisciplinary [**seminar**](https://www.youtube.com/watch?v=nO13-AHit6E) - at the interface between Neuroscience and Deep Learning - given 
 at the ICTP Workshop on Science of Data Science | (smr 3283).
-
 
 
 ## Introduction to our work
