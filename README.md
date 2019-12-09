@@ -34,7 +34,7 @@ We provide
 
 We will provide in future weeks/months a **Tutorials** pointing to possible extensions and open problems.
 
-## <a name="extras"></a>
+## <a name="extra"></a>
 
 - Alessio Ansuini's [**poster**](https://drive.google.com/open?id=14SgF5BSVeAwEYo52gDH4v0ZgkzR_NpTa) at NeurIPS 
 
