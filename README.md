@@ -98,16 +98,6 @@ So, in general, it would be helpful, when exploring data, to know
 what is the intrinsic dimensionality to start with.
 It would be helpful for many purposes: compression, density estimation etc.
 
-In our work we investigated the intrinsic dimensionality of
-representations in the hidden layers of deep convolutional networks (CNNs).
-**The hope is to use the ID of these representations - in synergy with other approaches - 
-in elucidating the inner workings of these networks and, more in general, 
-of any deep model.**
-
-We also hope that the method of ID estimation used in this paper will be 
-helpful in many other problems outside deep learning, in and the analysis 
-of datasets in general (see [Facco et al.]( https://www.nature.com/articles/s41598-017-11873-y)).
-
 ### **Our work** <a name="results"></a>
 
 It is well known that DNNs - in particular convolutional networks (CNNs) - transform their input 
@@ -161,10 +151,24 @@ What we found is:
 
 - focusing only on the last hidden layer, after a first compression phase (lasting approximately a half-epoch) the ID slowly expanded and stabilized at a higher value. This *change of regime* (from compression to expansion) is not accompanied in our experiments to the onset of overfitting, as it was observed in [Ma et al.](https://arxiv.org/abs/1806.02612) that used *local* measures of intrinsic dimension. It is important, for such comparisons, to remember also that our ID estimate is *global*. 
 
+<img src="./docs/figs/dynamics_panel_B.png" width="600" />
+
 Overall, we think that the dynamics of the ID is not yet completely understood, perhaps depending on the architectures, datasets and optimization procedures.
 
+### Conclusions
 
-<img src="./docs/figs/dynamics_panel_B.png" width="600" />
+We investigated the intrinsic dimensionality of
+representations in the hidden layers of deep convolutional networks.
+
+**The hope is to use the ID of these representations - in synergy with other approaches - 
+in elucidating the inner workings of these networks and, more in general, 
+of any deep model.**
+
+We also hope that the method of ID estimation used in this paper will be 
+helpful in many other problems **outside deep learning**, in and the analysis 
+of datasets in general (see [Facco et al.]( https://www.nature.com/articles/s41598-017-11873-y)).
+
+
 
 <!--### Tutorials (work in progress)
 We provide the following tutorials:
