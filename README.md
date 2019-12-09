@@ -157,18 +157,11 @@ Overall, we think that the dynamics of the ID is not yet completely understood, 
 
 ### Conclusions
 
-We investigated the intrinsic dimensionality of
-representations in the hidden layers of deep convolutional networks.
-
-**The hope is to use the ID of these representations - in synergy with other approaches - 
-in elucidating the inner workings of these networks and, more in general, 
-of any deep model.**
-
-We also hope that the method of ID estimation used in this paper will be 
-helpful in many other problems **outside deep learning**, in and the analysis 
-of datasets in general (see [Facco et al.]( https://www.nature.com/articles/s41598-017-11873-y)).
-
-
+We hope that data-driven, empirical approaches to investigate deep neural networks,
+like the one implemented in our study, will provide intuitions and constraints, which will ultimately
+inspire and enable the development of theoretical explanations of their computational capabilities.
+We also hope that the methods and the ideas expressed in this paper will be 
+helpful in problems outside deep learning, for the analysis of datasets in general.
 
 <!--### Tutorials (work in progress)
 We provide the following tutorials:
