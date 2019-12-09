@@ -44,9 +44,11 @@ at the ICTP Workshop on Science of Data Science | (smr 3283).
 
 ## Introduction to our work
 
-5 min read
+3-5 min read
 
-### **Prologue**
+### **Prologue** 
+
+jump directly to [results](#results)
 
 Datasets can be very high-dimensional. In images, each pixel counts for one dimension 
 (three if coloured), so high-resolution images typically have dimensionality
@@ -105,7 +107,7 @@ We also hope that the method of ID estimation used in this paper will be
 helpful in many other problems outside deep learning, in and the analysis 
 of datasets in general (see [Facco et al.]( https://www.nature.com/articles/s41598-017-11873-y)).
 
-### **Our work**
+### **Our work** <a name="results"></a>
 
 It is well known that DNNs - in particular convolutional networks (CNNs) - transform their input 
 from the original space (pixels, sounds, etc.) to a progressively abstract form, 
