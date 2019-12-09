@@ -35,10 +35,7 @@ We provide
 We will provide in future weeks/months a **Tutorials** pointing to possible extensions and open problems.
 
 
-
-
-
-## <a name="extra"></a>
+## Extra materials <a name="extra"></a>
 
 - Alessio Ansuini's [**poster**](https://drive.google.com/open?id=14SgF5BSVeAwEYo52gDH4v0ZgkzR_NpTa) at NeurIPS 
 
@@ -46,7 +43,7 @@ We will provide in future weeks/months a **Tutorials** pointing to possible exte
 at the ICTP Workshop on Science of Data Science | (smr 3283).
 
 
-## <a name="intro"></a>
+## Introduction to our work <a name="intro"></a>
 
 3-5 min read
 
