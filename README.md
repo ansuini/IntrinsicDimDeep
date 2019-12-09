@@ -28,13 +28,13 @@ Alessio Ansuini (1),  Alessandro Laio (1),  Jakob H. Macke (2),  Davide Zoccolan
 
 We provide
 
-- an **introduction** to our work, on this page
-- detailed [**instructions**](./REPRODUCIBILITY.md) for **reproducibility** of our results 
-- **extra materials** (videos, slides, etc.)
+- an [**Introduction to our work**](#intro), on this page
+- detailed [**Instructions**](./REPRODUCIBILITY.md) for reproducibility of our results 
+- [**Extra materials**](#extra) (poster, video, more in the future...)
 
-We will provide in future weeks/months a few **tutorials** pointing to possible extensions and open problems.
+We will provide in future weeks/months a **Tutorials** pointing to possible extensions and open problems.
 
-## Extra materials
+## <a name="extras"></a>
 
 - Alessio Ansuini's [**poster**](https://drive.google.com/open?id=14SgF5BSVeAwEYo52gDH4v0ZgkzR_NpTa) at NeurIPS 
 
@@ -42,13 +42,13 @@ We will provide in future weeks/months a few **tutorials** pointing to possible 
 at the ICTP Workshop on Science of Data Science | (smr 3283).
 
 
-## Introduction to our work
+## <a name="intro"></a>
 
 3-5 min read
 
 ### **Prologue** 
 
-jump directly to [results](#results)
+jump to [results](#results)
 
 Datasets can be very high-dimensional. In images, each pixel counts for one dimension 
 (three if coloured), so high-resolution images typically have dimensionality
