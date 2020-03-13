@@ -87,7 +87,7 @@ dimensionality of this dataset is a value close to two, also
 if the *local* dimensionality of the noise perturbation (almost by
 definition of noise) is three.
 
-When we are faced with a new dataset, very often we do not much about the 
+When we are faced with a new dataset, very often we do not know much about the 
 process that generated it. (In the case of the torus, for example, we
 could ignore the fact that, in order to generate these data, it was
 enough to choose random pairs of angles with some probability distribution,
